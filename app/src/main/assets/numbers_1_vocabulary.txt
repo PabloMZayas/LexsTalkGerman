@@ -1,0 +1,10 @@
+Eins - Uno
+Zwei - Dos
+Drei - Tres
+Vier - Cuatro
+Fünf - Cinco
+Sechs - Seis
+Sieben - Siete
+Acht - Ocho
+Neun - Nueve
+Zehn - Diez

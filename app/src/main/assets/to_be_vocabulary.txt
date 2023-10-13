@@ -1,0 +1,10 @@
+ich bin - yo soy
+du bist - tú eres
+er ist - él es
+sie ist - ella es
+es ist - eso es
+wir sind - nosotros somos
+sie sind - ellos son
+er ist nicht - él no es
+ich bin nicht - yo no soy
+sie sind nicht - ellos no son

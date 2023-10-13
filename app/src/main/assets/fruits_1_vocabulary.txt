@@ -1,0 +1,10 @@
+Fruta - Fruta
+Apfel - Manzana
+Banane - Plátano
+Orange - Naranja
+Erdbeere - Fresa
+Traube - Uva
+Wassermelone - Sandía
+Ananas - Piña
+Mango - Mango
+Zitrone - Limón

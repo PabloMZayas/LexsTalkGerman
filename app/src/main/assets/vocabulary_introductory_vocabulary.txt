@@ -1,0 +1,10 @@
+hallo - hola
+auf Wiedersehen - adiós
+Name - nombre
+gut - bien
+ja - sí
+danke - gracias
+eins - uno
+zwei - dos
+drei - tres
+bitte - por favor

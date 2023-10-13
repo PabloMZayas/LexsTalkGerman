@@ -1,0 +1,10 @@
+Hund - Perro
+Katze - Gato
+Elefant - Elefante
+Löwe - León
+Tiger - Tigre
+Giraffe - Jirafa
+Affe - Mono
+Hase - Conejo
+Delfin - Delfín
+Schlange - Serpiente

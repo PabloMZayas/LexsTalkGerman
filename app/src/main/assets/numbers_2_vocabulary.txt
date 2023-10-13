@@ -1,0 +1,16 @@
+elf - once
+zwölf - doce
+dreizehn - trece
+vierzehn - catorce
+fünfzehn - quince
+sechzehn - dieciséis
+siebzehn - diecisiete
+achtzehn - dieciocho
+neunzehn - diecinueve
+zwanzig - veinte
+einundzwanzig - veintiuno
+zweiundzwanzig - veintidós
+dreiundzwanzig - veintitrés
+vierundzwanzig - veinticuatro
+fünfundzwanzig - veinticinco
+sechsundzwanzig - veintiséis
