@@ -6,6 +6,7 @@ sealed class Routes (val route: String) {
     object LessonVocabularyScreen: Routes("lesson_vocabulary_screen")
     object PlayingCardsScreen: Routes("playing_cards_screen")
     object WinnerScreen: Routes("winner_screen")
+    object LoserScreen: Routes("loser_screen")
 
     /*object Pantalla5: Routes("pantalla5?name={name}") {
         fun createRoute(name: String) = "pantalla5?name=$name"

@@ -35,9 +35,9 @@ fun WinnerScreen(navController: NavHostController, selectionsViewModel: Selectio
             .padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center) {
-        TextWinner()
+        TextWinnerOrLoser(true)
         Spacer(modifier = Modifier.size(30.dp))
-        LottieWinner()
+        LottieWinnerOrLoser(true)
         Spacer(modifier = Modifier.size(30.dp))
         ButtonAccept(navController)
     }
@@ -55,16 +55,17 @@ fun ButtonAccept(navController: NavHostController) {
 }
 
 @Composable
-fun LottieWinner() {
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.mariachi))
+fun LottieWinnerOrLoser(isWinner: Boolean) {
+    val lottieToShow = if (isWinner) R.raw.mariachi else R.raw.donkey_one
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(lottieToShow))
     val progress by animateLottieCompositionAsState(composition = composition, iterations = LottieConstants.IterateForever)
     LottieAnimation(modifier = Modifier.size(140.dp), composition = composition, progress = progress)
 }
 
 @Composable
-fun TextWinner() {
+fun TextWinnerOrLoser(isWinner: Boolean) {
     Text(modifier = Modifier.fillMaxWidth(),
-            text = "¡FELICIDADES, HAS GANADO!",
+            text = if (isWinner) "¡FELICIDADES, HAS GANADO!" else "¡HAS PERDIDO, ANCIANO!",
             fontWeight = FontWeight.SemiBold,
             fontSize = 25.sp,
             textAlign = TextAlign.Center)

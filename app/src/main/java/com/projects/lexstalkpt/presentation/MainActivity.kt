@@ -1,6 +1,7 @@
 package com.projects.lexstalkpt.presentation
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -13,19 +14,25 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.projects.lexstalkpt.presentation.playing.PlayingCardsScreen
 import com.projects.lexstalkpt.presentation.playing.WinnerScreen
+import com.projects.lexstalkpt.presentation.playing.LoserScreen
 import com.projects.lexstalkpt.presentation.selections.SelectModeGameScreen
 import com.projects.lexstalkpt.presentation.selections.SelectSectionScreen
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 import com.projects.lexstalkpt.presentation.studying.LessonVocabularyScreen
 import com.projects.lexstalkpt.ui.theme.LexsTalkPtTheme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
+import java.util.UUID
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    private lateinit var ttsForPlaying: TextToSpeech
     private val selectionsViewModel: SelectionsViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initTtsForPlaying()
         setContent {
             LexsTalkPtTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
@@ -36,20 +43,36 @@ class MainActivity : ComponentActivity() {
                             SelectSectionScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.SelectModeGameScreen.route) {
+                            selectionsViewModel.restartLives()
+                            selectionsViewModel.restartRightHits()
                             SelectModeGameScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.LessonVocabularyScreen.route) {
                             LessonVocabularyScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.PlayingCardsScreen.route) {
-                            selectionsViewModel.lives.value = 2
-                            PlayingCardsScreen(navController, selectionsViewModel)
+                            PlayingCardsScreen(navController, selectionsViewModel) { readTextOutLoud (it) }
                         }
                         composable(Routes.WinnerScreen.route) {
                             WinnerScreen(navController, selectionsViewModel)
                         }
+                        composable(Routes.LoserScreen.route) {
+                            LoserScreen(navController, selectionsViewModel)
+                        }
                     }
                 }
+            }
+        }
+    }
+
+    private fun readTextOutLoud(it: String) {
+        ttsForPlaying.speak(it, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
+    }
+
+    private fun initTtsForPlaying() {
+        ttsForPlaying = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                ttsForPlaying.language = Locale.GERMAN
             }
         }
     }

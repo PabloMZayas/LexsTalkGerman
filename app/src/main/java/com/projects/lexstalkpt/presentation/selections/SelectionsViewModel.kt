@@ -1,5 +1,8 @@
 package com.projects.lexstalkpt.presentation.selections
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.*
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.projects.lexstalkpt.data.lessons.LessonItem
@@ -12,17 +15,17 @@ class SelectionsViewModel @Inject constructor(
         private val provideVocabularyFromTXTUseCase: ProvideVocabularyFromTXTUseCase
 ) : ViewModel() {
 
-    private var _vocabularyList = MutableLiveData<List<List<String>>>()
-    val vocabularyList get() = _vocabularyList
+    var myVocabularyList by mutableStateOf(listOf<List<String>>())
+        private set
+
+    var lives by mutableStateOf(0)
+        private set
+
+    var rightHits by mutableStateOf(0)
+        private set
 
     private var _lessonItemSelected = MutableLiveData<LessonItem>()
     val lessonItemSelected get() = _lessonItemSelected
-
-    private var _rightHits = MutableLiveData(0)
-    val rightHits get() = _rightHits
-
-    private var _lives = MutableLiveData<Int>()
-    val lives get() = _lives
 
     private var _modeSelected = MutableLiveData<Int>()
     val modeSelected get() = _modeSelected
@@ -37,18 +40,22 @@ class SelectionsViewModel @Inject constructor(
 
     fun setVocabulary() {
         val key = _lessonItemSelected.value!!.lessonVocabularyKey
-        _vocabularyList.value = provideVocabularyFromTXTUseCase.provideVocabularyFromTxt(key)
+        myVocabularyList = provideVocabularyFromTXTUseCase.provideVocabularyFromTxt(key)
     }
 
-    fun updateHits() {
-        _rightHits.value = _rightHits.value!!.plus(1)
+    fun increaseRightHits() {
+        rightHits += 1
     }
 
     fun restartRightHits() {
-        _rightHits.value = 0
+        rightHits = 0
     }
 
     fun decreaseLife() {
-        _lives.value = _lives.value?.minus(1)
+        lives -= 1
+    }
+
+    fun restartLives() {
+        lives = 2
     }
 }

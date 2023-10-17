@@ -25,13 +25,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -48,24 +46,22 @@ import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
-fun PlayingCardsScreen(navController: NavHostController, selectionsViewModel: SelectionsViewModel) {
-    val myListVocabulary by remember { mutableStateOf(selectionsViewModel.vocabularyList.value!!) }
+fun PlayingCardsScreen(navController: NavHostController,
+                       selectionsViewModel: SelectionsViewModel,
+                       readTextOutLoud: (String) -> Unit) {
+
+    val myListVocabulary = selectionsViewModel.myVocabularyList
     val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
     val myOptions by remember { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
     val rightAnswer by remember { mutableStateOf(shuffledList[0][1]) }
     var userAnswer by remember { mutableStateOf("") }
-    val lifecycleOwner = LocalLifecycleOwner.current
-    var rightHits by rememberSaveable { mutableStateOf(0) }
-    selectionsViewModel.rightHits.observe(lifecycleOwner) { rightHits = it!! }
-    var lives by rememberSaveable { mutableStateOf(0) }
-    selectionsViewModel.lives.observe(lifecycleOwner) { lives = it!! }
 
     Column(Modifier
             .fillMaxSize()
             .padding(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
-        ShowProgress(rightHits)
-        ShowLives(lives)
+        ShowProgress(selectionsViewModel)
+        ShowLives(selectionsViewModel)
         ShowTimeAndMoney()
         Spacer(modifier = Modifier.size(15.dp))
         TextInstructions(Modifier.align(Alignment.CenterHorizontally))
@@ -74,7 +70,10 @@ fun PlayingCardsScreen(navController: NavHostController, selectionsViewModel: Se
         Spacer(modifier = Modifier.size(35.dp))
         ImageLessonPlaying(selectionsViewModel)
         Spacer(modifier = Modifier.size(35.dp))
-        OptionsButtons(myOptions) { userAnswer = it }
+        OptionsButtons(myOptions) {
+            userAnswer = it
+            readTextOutLoud(it)
+        }
         Spacer(modifier = Modifier.size(45.dp))
         ButtonCheckAnswer(shuffledList[0], userAnswer, navController, selectionsViewModel)
     }
@@ -103,19 +102,17 @@ fun ButtonCheckAnswer(listOptions: List<String>, userAnswer: String, navControll
 
 fun showError(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
     selectionsViewModel.decreaseLife()
-    if (selectionsViewModel.lives.value!! < 1) {
-        navController.navigate(Routes.WinnerScreen.route)
-    } else {
-        Toast.makeText(context, "Intenta de nuevo", Toast.LENGTH_SHORT).show()
-    }
+    if (selectionsViewModel.lives < 1) navController.navigate(Routes.LoserScreen.route) { popUpTo(Routes.LoserScreen.route) { inclusive = true } }
+    Toast.makeText(context, "Intenta de nuevo", Toast.LENGTH_SHORT).show()
 }
 
 fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
-    Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
-    selectionsViewModel.updateHits()
-    if (selectionsViewModel.rightHits.value!! > 9) {
+    selectionsViewModel.increaseRightHits()
+    val rightHits = selectionsViewModel.rightHits
+    if (rightHits > 9) {
         navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
     } else {
+        Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
     }
 }
@@ -130,13 +127,13 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
             .padding(horizontal = 20.dp)) {
         ButtonOption(Modifier
                 .weight(1f)
-                .padding(start = 10.dp), text = myShuffledList[0][0],1, optionSelected) {
+                .padding(start = 10.dp), text = myShuffledList[0][0], 1, optionSelected) {
             optionSelected = 1
             function(myShuffledList[0][0])
         }
         ButtonOption(Modifier
                 .weight(1f)
-                .padding(start = 10.dp), text = myShuffledList[1][0],2, optionSelected) {
+                .padding(start = 10.dp), text = myShuffledList[1][0], 2, optionSelected) {
             optionSelected = 2
             function(myShuffledList[1][0])
         }
@@ -147,13 +144,13 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
             .padding(horizontal = 20.dp)) {
         ButtonOption(Modifier
                 .weight(1f)
-                .padding(start = 10.dp), text = myShuffledList[2][0],3, optionSelected) {
+                .padding(start = 10.dp), text = myShuffledList[2][0], 3, optionSelected) {
             optionSelected = 3
             function(myShuffledList[2][0])
         }
         ButtonOption(Modifier
                 .weight(1f)
-                .padding(start = 10.dp), text = myShuffledList[3][0],4, optionSelected) {
+                .padding(start = 10.dp), text = myShuffledList[3][0], 4, optionSelected) {
             optionSelected = 4
             function(myShuffledList[3][0])
         }
@@ -161,8 +158,8 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
 }
 
 @Composable
-fun ButtonOption(modifier: Modifier, text: String, optionSelected: Int, optionButton: Int, onClick:() -> Unit) {
-    Button(modifier = modifier,  onClick = { onClick() }, colors = ButtonDefaults.buttonColors(
+fun ButtonOption(modifier: Modifier, text: String, optionSelected: Int, optionButton: Int, onClick: () -> Unit) {
+    Button(modifier = modifier, onClick = { onClick() }, colors = ButtonDefaults.buttonColors(
             containerColor = if (optionSelected == optionButton) Color(0xFF6D167E) else Color(0xFFB8C2E0),
             contentColor = if (optionSelected == optionButton) Color(0xFFFDFAFE) else Color(0xFF010512),
     )) {
@@ -236,24 +233,28 @@ fun LottieClock() {
 }
 
 @Composable
-fun ShowProgress(rightHits: Int) {
+fun ShowProgress(selectionsViewModel: SelectionsViewModel) {
+    val rightHits = selectionsViewModel.rightHits
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        LinearProgressIndicator(progress = rightHits.toFloat()/10, Modifier.weight(1f))
+        LinearProgressIndicator(progress = rightHits.toFloat() / 10, Modifier.weight(1f))
         Text(text = "$rightHits/10", Modifier.padding(start = 10.dp))
     }
 }
 
 @Composable
-fun ShowLives(lives: Int) {
-
+fun ShowLives(selectionsViewModel: SelectionsViewModel) {
+    val lives = selectionsViewModel.lives
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
-        Icon(painter = painterResource(id = R.drawable.heart_one), contentDescription = "heart_one",
-                tint = if (lives>0) Color.Red else Color.Black)
+        LifeForChallenge(lives = lives, numberOfIcon = 0)
         Spacer(modifier = Modifier.size(10.dp))
-        Icon(painter = painterResource(id = R.drawable.heart_one), contentDescription = "heart_two",
-                tint = if (lives>1) Color.Red else Color.Black)
+        LifeForChallenge(lives = lives, numberOfIcon = 1)
         Spacer(modifier = Modifier.size(50.dp))
-        IconButton(onClick = { }) { Icon(painter = painterResource(id = R.drawable.ic_sound_mute), contentDescription = "")
-        }
+        IconButton(onClick = {  }) { Icon(painter = painterResource(id = R.drawable.ic_sound_mute), contentDescription = "") }
     }
+}
+
+@Composable
+fun LifeForChallenge(lives: Int, numberOfIcon: Int) {
+    Icon(painter = painterResource(id = R.drawable.heart_one), contentDescription = "heart",
+            tint = if (lives > numberOfIcon) Color.Red else Color.Black)
 }

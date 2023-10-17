@@ -31,12 +31,12 @@ fun LessonVocabularyScreen(navController: NavHostController, selectionsViewModel
             .padding(15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         TitleLesson(selectionsViewModel = selectionsViewModel)
         ListVocabulary(selectionsViewModel, Modifier.weight(1f))
-        ButtonGoToChallenge(navController)
+        ButtonGoToChallenge()
     }
 }
 
 @Composable
-fun ButtonGoToChallenge(navController: NavHostController) {
+fun ButtonGoToChallenge() {
     Button(modifier = Modifier.fillMaxWidth(), onClick = {  }) {
         Text(text = "Ir al desafío")
     }
@@ -44,10 +44,9 @@ fun ButtonGoToChallenge(navController: NavHostController) {
 
 @Composable
 fun ListVocabulary(selectionsViewModel: SelectionsViewModel, modifier: Modifier) {
-    val vocabularyList = selectionsViewModel.vocabularyList.value!!
+    val vocabularyList = selectionsViewModel.myVocabularyList
     LazyVerticalGrid(modifier = modifier, columns = GridCells.Fixed(2), content = {
         items(vocabularyList) { itemVocabulary ->
-            //Text(text = itemVocabulary[0])
             ItemVocabulary(itemVocabulary)
         }
     })
