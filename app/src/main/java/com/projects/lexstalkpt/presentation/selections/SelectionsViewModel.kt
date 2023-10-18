@@ -24,18 +24,21 @@ class SelectionsViewModel @Inject constructor(
     var rightHits by mutableStateOf(0)
         private set
 
+    var modeSelected by mutableStateOf(0)
+        private set
+
     private var _lessonItemSelected = MutableLiveData<LessonItem>()
     val lessonItemSelected get() = _lessonItemSelected
 
-    private var _modeSelected = MutableLiveData<Int>()
-    val modeSelected get() = _modeSelected
+    //private var _modeSelected = MutableLiveData<Int>()
+    //val modeSelected get() = _modeSelected
 
     fun setSectionSelected(lessonItem: LessonItem) {
         _lessonItemSelected.value = lessonItem
     }
 
     fun setSelectedMode(mode: Int) {
-        _modeSelected.value = mode
+        modeSelected = mode
     }
 
     fun setVocabulary() {

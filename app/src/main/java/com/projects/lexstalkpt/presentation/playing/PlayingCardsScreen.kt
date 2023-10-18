@@ -3,7 +3,6 @@ package com.projects.lexstalkpt.presentation.playing
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,9 +15,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -36,12 +32,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
-import com.airbnb.lottie.compose.rememberLottieComposition
-import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
@@ -64,7 +54,7 @@ fun PlayingCardsScreen(navController: NavHostController,
         ShowLives(selectionsViewModel)
         ShowTimeAndMoney()
         Spacer(modifier = Modifier.size(15.dp))
-        TextInstructions(Modifier.align(Alignment.CenterHorizontally))
+        TextInstructions(Modifier.align(Alignment.CenterHorizontally), "Selecciona el recuadro correcto")
         Spacer(modifier = Modifier.size(15.dp))
         CardShowWord(rightAnswer)
         Spacer(modifier = Modifier.size(35.dp))
@@ -110,16 +100,42 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
     selectionsViewModel.increaseRightHits()
     val rightHits = selectionsViewModel.rightHits
     if (rightHits > 9) {
-        navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
+        navigateToWinnerDialog(navController)
     } else {
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
+        //navigateToNextQuestion(selectionsViewModel, navController)
     }
+}
+
+fun navigateToNextQuestion(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
+    when (selectionsViewModel.modeSelected) {
+        0 -> { }
+        1 -> { navigateToVocabulary(navController) }
+        2 -> { navigateToCards(navController) }
+        7 -> { navigateToTypeWord(navController) }
+    }
+}
+
+fun navigateToVocabulary(navController: NavHostController) {
+    navController.navigate(Routes.LessonVocabularyScreen.route) { popUpTo(Routes.LessonVocabularyScreen.route) { inclusive = true } }
+}
+
+fun navigateToCards(navController: NavHostController) {
+    navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
+}
+
+fun navigateToTypeWord(navController: NavHostController) {
+    navController.navigate(Routes.PlayingTypeWord.route) { popUpTo(Routes.PlayingTypeWord.route) { inclusive = true } }
+}
+
+fun navigateToWinnerDialog(navController: NavHostController) {
+    navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
 }
 
 @Composable
 fun OptionsButtons(myShuffledList: List<List<String>>,
-                   function: (String) -> Unit) {
+                   onClick: (String) -> Unit) {
 
     var optionSelected by remember { mutableStateOf(0) }
     Row(Modifier
@@ -129,13 +145,13 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[0][0], 1, optionSelected) {
             optionSelected = 1
-            function(myShuffledList[0][0])
+            onClick(myShuffledList[0][0])
         }
         ButtonOption(Modifier
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[1][0], 2, optionSelected) {
             optionSelected = 2
-            function(myShuffledList[1][0])
+            onClick(myShuffledList[1][0])
         }
     }
 
@@ -146,13 +162,13 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[2][0], 3, optionSelected) {
             optionSelected = 3
-            function(myShuffledList[2][0])
+            onClick(myShuffledList[2][0])
         }
         ButtonOption(Modifier
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[3][0], 4, optionSelected) {
             optionSelected = 4
-            function(myShuffledList[3][0])
+            onClick(myShuffledList[3][0])
         }
     }
 }
@@ -165,15 +181,6 @@ fun ButtonOption(modifier: Modifier, text: String, optionSelected: Int, optionBu
     )) {
         Text(text = text.uppercase())
     }
-}
-
-@Composable
-fun TextInstructions(modifier: Modifier) {
-    Text(modifier = modifier.fillMaxWidth(),
-            text = "Selecciona el recuadro correcto",
-            textAlign = TextAlign.Center,
-            fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold)
 }
 
 @Composable
@@ -191,70 +198,4 @@ fun CardShowWord(rightAnswer: String) {
                         .padding(top = 75.dp),
                 fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
     }
-}
-
-@Composable
-fun ShowTimeAndMoney() {
-    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
-        LottieClock()
-        Text(text = "00:00")
-        Spacer(modifier = Modifier.size(50.dp))
-        LottieCoins()
-        Text(text = "10.50")
-    }
-}
-
-@Composable
-fun LottieCoins() {
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.coin_spin))
-    val progress by animateLottieCompositionAsState(composition = composition, iterations = LottieConstants.IterateForever, speed = 0.5f)
-
-    LottieAnimation(
-            modifier = Modifier
-                    .size(40.dp)
-                    .padding(0.dp),
-            composition = composition,
-            progress = progress
-    )
-}
-
-@Composable
-fun LottieClock() {
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.sand_clock))
-    val progress by animateLottieCompositionAsState(composition = composition, iterations = LottieConstants.IterateForever)
-
-    LottieAnimation(
-            modifier = Modifier
-                    .size(40.dp)
-                    .padding(0.dp),
-            composition = composition,
-            progress = progress
-    )
-}
-
-@Composable
-fun ShowProgress(selectionsViewModel: SelectionsViewModel) {
-    val rightHits = selectionsViewModel.rightHits
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        LinearProgressIndicator(progress = rightHits.toFloat() / 10, Modifier.weight(1f))
-        Text(text = "$rightHits/10", Modifier.padding(start = 10.dp))
-    }
-}
-
-@Composable
-fun ShowLives(selectionsViewModel: SelectionsViewModel) {
-    val lives = selectionsViewModel.lives
-    Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center) {
-        LifeForChallenge(lives = lives, numberOfIcon = 0)
-        Spacer(modifier = Modifier.size(10.dp))
-        LifeForChallenge(lives = lives, numberOfIcon = 1)
-        Spacer(modifier = Modifier.size(50.dp))
-        IconButton(onClick = {  }) { Icon(painter = painterResource(id = R.drawable.ic_sound_mute), contentDescription = "") }
-    }
-}
-
-@Composable
-fun LifeForChallenge(lives: Int, numberOfIcon: Int) {
-    Icon(painter = painterResource(id = R.drawable.heart_one), contentDescription = "heart",
-            tint = if (lives > numberOfIcon) Color.Red else Color.Black)
 }

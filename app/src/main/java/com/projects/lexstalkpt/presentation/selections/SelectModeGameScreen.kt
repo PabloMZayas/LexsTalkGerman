@@ -50,18 +50,22 @@ fun SelectModeGameScreen(
 @Composable
 fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
                         navController: NavHostController) {
-    val lifecycleOwner = LocalLifecycleOwner.current
-    selectionsViewModel.modeSelected.observe(lifecycleOwner) { mode ->
-        when (mode) {
-            1 -> {}
-            2 -> {
-                navController.navigate(Routes.LessonVocabularyScreen.route)
-                selectionsViewModel.setSelectedMode(0)
-            }
-            3 -> {
-                navController.navigate(Routes.PlayingCardsScreen.route)
-                selectionsViewModel.setSelectedMode(0)
-            }
+    //val lifecycleOwner = LocalLifecycleOwner.current
+    when (selectionsViewModel.modeSelected) {
+        1 -> {}
+        2 -> {
+            navController.navigate(Routes.LessonVocabularyScreen.route)
+            selectionsViewModel.setSelectedMode(0)
+        }
+
+        3 -> {
+            navController.navigate(Routes.PlayingCardsScreen.route)
+            selectionsViewModel.setSelectedMode(0)
+        }
+
+        7 -> {
+            navController.navigate(Routes.PlayingTypeWord.route)
+            selectionsViewModel.setSelectedMode(0)
         }
     }
 }
@@ -107,9 +111,9 @@ fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: Sele
     Button(modifier = modifier.padding(vertical = 4.dp),
             onClick = { selectionsViewModel.setSelectedMode(modeGame) },
             colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFFE9D8BF),
-            contentColor = Color.Black
-    )) {
+                    containerColor = Color(0xFFE9D8BF),
+                    contentColor = Color.Black
+            )) {
         Text(text = text.uppercase(),
                 fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(vertical = 4.dp))
     }
@@ -124,10 +128,14 @@ fun ButtonFullChallenge(modifier: Modifier, selectionsViewModel: SelectionsViewM
 fun CardsListeningButtons(modifier: Modifier, selectionsViewModel: SelectionsViewModel) {
     Row(Modifier.padding(top = 10.dp)) {
         OptionModeButton(text = "Cartas",
-                modifier = modifier.weight(1f).padding(end = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(end = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 3)
         OptionModeButton(text = "Escucha",
-                modifier = modifier.weight(1f).padding(start = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(start = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 4)
     }
 }
@@ -136,10 +144,14 @@ fun CardsListeningButtons(modifier: Modifier, selectionsViewModel: SelectionsVie
 fun MemoryPronounceButtons(modifier: Modifier, selectionsViewModel: SelectionsViewModel) {
     Row(Modifier.padding(top = 10.dp)) {
         OptionModeButton(text = "Memoria",
-                modifier = modifier.weight(1f).padding(end = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(end = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 5)
         OptionModeButton(text = "Pronuncia",
-                modifier = modifier.weight(1f).padding(start = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(start = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 6)
     }
 }
@@ -148,10 +160,14 @@ fun MemoryPronounceButtons(modifier: Modifier, selectionsViewModel: SelectionsVi
 fun WritingTraduceButtons(modifier: Modifier, selectionsViewModel: SelectionsViewModel) {
     Row(Modifier.padding(top = 10.dp)) {
         OptionModeButton(text = "Escritura",
-                modifier = modifier.weight(1f).padding(end = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(end = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 7)
         OptionModeButton(text = "Traducción",
-                modifier = modifier.weight(1f).padding(start = 10.dp),
+                modifier = modifier
+                        .weight(1f)
+                        .padding(start = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 8)
     }
 }

@@ -45,12 +45,11 @@ fun WinnerScreen(navController: NavHostController, selectionsViewModel: Selectio
 
 @Composable
 fun ButtonAccept(navController: NavHostController) {
-    val context = LocalContext.current
     Button(modifier = Modifier.fillMaxWidth(), onClick = {
         navController.navigateUp()
         navController.navigateUp()
     }) {
-        Text(text = "Continuar")
+        Text(text = "CONTINUAR")
     }
 }
 
