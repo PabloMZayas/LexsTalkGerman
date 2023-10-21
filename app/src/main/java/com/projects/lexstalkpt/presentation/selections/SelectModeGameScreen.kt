@@ -50,7 +50,6 @@ fun SelectModeGameScreen(
 @Composable
 fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
                         navController: NavHostController) {
-    //val lifecycleOwner = LocalLifecycleOwner.current
     when (selectionsViewModel.modeSelected) {
         1 -> {}
         2 -> {

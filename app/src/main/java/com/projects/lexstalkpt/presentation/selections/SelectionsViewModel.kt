@@ -30,9 +30,6 @@ class SelectionsViewModel @Inject constructor(
     private var _lessonItemSelected = MutableLiveData<LessonItem>()
     val lessonItemSelected get() = _lessonItemSelected
 
-    //private var _modeSelected = MutableLiveData<Int>()
-    //val modeSelected get() = _modeSelected
-
     fun setSectionSelected(lessonItem: LessonItem) {
         _lessonItemSelected.value = lessonItem
     }

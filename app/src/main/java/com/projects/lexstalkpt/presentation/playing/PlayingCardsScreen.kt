@@ -48,7 +48,7 @@ fun PlayingCardsScreen(navController: NavHostController,
 
     Column(Modifier
             .fillMaxSize()
-            .padding(10.dp),
+            .padding(25.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
         ShowProgress(selectionsViewModel)
         ShowLives(selectionsViewModel)
@@ -57,14 +57,14 @@ fun PlayingCardsScreen(navController: NavHostController,
         TextInstructions(Modifier.align(Alignment.CenterHorizontally), "Selecciona el recuadro correcto")
         Spacer(modifier = Modifier.size(15.dp))
         CardShowWord(rightAnswer)
-        Spacer(modifier = Modifier.size(35.dp))
+        Spacer(modifier = Modifier.size(25.dp))
         ImageLessonPlaying(selectionsViewModel)
-        Spacer(modifier = Modifier.size(35.dp))
+        Spacer(modifier = Modifier.size(25.dp))
         OptionsButtons(myOptions) {
             userAnswer = it
             readTextOutLoud(it)
         }
-        Spacer(modifier = Modifier.size(45.dp))
+        Spacer(modifier = Modifier.size(25.dp))
         ButtonCheckAnswer(shuffledList[0], userAnswer, navController, selectionsViewModel)
     }
 }
@@ -103,14 +103,14 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
         navigateToWinnerDialog(navController)
     } else {
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
-        navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
-        //navigateToNextQuestion(selectionsViewModel, navController)
+        //navController.navigate(Routes.PlayingTypeWord.route) { popUpTo(Routes.PlayingTypeWord.route) { inclusive = true } }
+        navigateToNextQuestion(selectionsViewModel, navController)
     }
 }
 
 fun navigateToNextQuestion(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
     when (selectionsViewModel.modeSelected) {
-        0 -> { }
+        0 -> { navigateToCards(navController) }
         1 -> { navigateToVocabulary(navController) }
         2 -> { navigateToCards(navController) }
         7 -> { navigateToTypeWord(navController) }
@@ -139,8 +139,7 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
 
     var optionSelected by remember { mutableStateOf(0) }
     Row(Modifier
-            .padding(top = 10.dp)
-            .padding(horizontal = 20.dp)) {
+            .padding(top = 10.dp)) {
         ButtonOption(Modifier
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[0][0], 1, optionSelected) {
@@ -156,8 +155,7 @@ fun OptionsButtons(myShuffledList: List<List<String>>,
     }
 
     Row(Modifier
-            .padding(top = 10.dp)
-            .padding(horizontal = 20.dp)) {
+            .padding(top = 10.dp)) {
         ButtonOption(Modifier
                 .weight(1f)
                 .padding(start = 10.dp), text = myShuffledList[2][0], 3, optionSelected) {
@@ -187,15 +185,14 @@ fun ButtonOption(modifier: Modifier, text: String, optionSelected: Int, optionBu
 fun CardShowWord(rightAnswer: String) {
     Card(Modifier
             .fillMaxWidth()
-            .padding(horizontal = 20.dp)
-            .height(180.dp), colors = CardDefaults.cardColors(
+            .height(140.dp), colors = CardDefaults.cardColors(
             containerColor = Color(0xFFB8C2E0)
     )) {
         Text(text = rightAnswer.uppercase(),
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 75.dp),
+                        .padding(top = 60.dp),
                 fontSize = 20.sp, fontWeight = FontWeight.SemiBold)
     }
 }
