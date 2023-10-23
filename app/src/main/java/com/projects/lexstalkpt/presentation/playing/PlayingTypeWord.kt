@@ -1,5 +1,6 @@
 package com.projects.lexstalkpt.presentation.playing
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,6 +24,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -62,7 +64,18 @@ fun PlayingTypeWord(navController: NavHostController,
 fun ButtonCheckAnswerTypeWord(rightAnswers: List<String>, userAnswer: String, navController: NavHostController, selectionsViewModel: SelectionsViewModel) {
     val context = LocalContext.current
     Button(onClick = {
-        if (rightAnswers.contains(userAnswer)) showHit(context, selectionsViewModel, navController)
+        if (rightAnswers.contains(userAnswer)) //showHit(context, selectionsViewModel, navController)
+        {
+            selectionsViewModel.increaseRightHits()
+            val rightHits = selectionsViewModel.rightHits
+            if (rightHits > 9) {
+                navigateToWinnerDialog(navController)
+            } else {
+                Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
+                navController.navigate(Routes.PlayingTypeWord.route) { popUpTo(Routes.PlayingTypeWord.route) { inclusive = true } }
+                //navigateToNextQuestion(selectionsViewModel, navController)
+            }
+        }
         else showError(context, selectionsViewModel, navController)
     }, Modifier
             .fillMaxWidth()
