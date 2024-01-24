@@ -1,6 +1,7 @@
 package com.projects.lexstalkpt.presentation.selections
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.Routes
 
 @Composable
@@ -105,16 +108,38 @@ fun BottomButtons(modifier: Modifier, selectionsViewModel: SelectionsViewModel) 
     WritingTraduceButtons(modifier, selectionsViewModel)
 }
 
+fun getIconButton(modeGame: Int): Int {
+    return when (modeGame) {
+        1 -> R.drawable.ic_take_a_lesson
+        2 -> R.drawable.icon_globalization
+        3 -> R.drawable.icon_playing_cards
+        4 -> R.drawable.icon_playing_listening
+        5 -> R.drawable.icon_playing_memory
+        6 -> R.drawable.icon_playing_pronounce
+        7 -> R.drawable.icon_fill_spaces
+        8 -> R.drawable.icon_playing_translation
+        9 -> R.drawable.ic_take_a_lesson
+        10 -> R.drawable.icon_swordman
+        else -> R.drawable.ic_take_a_lesson
+    }
+}
+
 @Composable
 fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: SelectionsViewModel, modeGame: Int) {
+    val iconButton = getIconButton(modeGame)
     Button(modifier = modifier.padding(vertical = 4.dp),
             onClick = { selectionsViewModel.setSelectedMode(modeGame) },
             colors = ButtonDefaults.buttonColors(
                     containerColor = Color(0xFFE9D8BF),
                     contentColor = Color.Black
             )) {
-        Text(text = text.uppercase(),
-                fontWeight = FontWeight.SemiBold, modifier = Modifier.padding(vertical = 4.dp))
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+            Text(text = text.uppercase(),
+                    fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(vertical = 4.dp).weight(1f))
+            Icon(painter = painterResource(id = iconButton), contentDescription = "iconButton" )
+        }
     }
 }
 

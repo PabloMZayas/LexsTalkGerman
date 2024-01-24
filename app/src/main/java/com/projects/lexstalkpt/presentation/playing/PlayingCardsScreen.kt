@@ -103,8 +103,7 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
         navigateToWinnerDialog(navController)
     } else {
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
-        navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
-        //navigateToNextQuestion(selectionsViewModel, navController)
+        navigateToCards(navController)
     }
 }
 
