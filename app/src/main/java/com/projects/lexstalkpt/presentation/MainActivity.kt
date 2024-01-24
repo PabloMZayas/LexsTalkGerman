@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import com.projects.lexstalkpt.presentation.playing.PlayingCardsScreen
 import com.projects.lexstalkpt.presentation.playing.WinnerScreen
 import com.projects.lexstalkpt.presentation.playing.LoserScreen
+import com.projects.lexstalkpt.presentation.playing.PlayingScreenMemory
 import com.projects.lexstalkpt.presentation.playing.PlayingTypeWord
 import com.projects.lexstalkpt.presentation.selections.SelectModeGameScreen
 import com.projects.lexstalkpt.presentation.selections.SelectSectionScreen
@@ -60,6 +61,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Routes.PlayingTypeWord.route) {
                             PlayingTypeWord(navController, selectionsViewModel)
+                        }
+                        composable(Routes.PlayingMemoryScreen.route) {
+                            PlayingScreenMemory(selectionsViewModel, navController)
                         }
                         composable(Routes.WinnerScreen.route) {
                             WinnerScreen(navController, selectionsViewModel)

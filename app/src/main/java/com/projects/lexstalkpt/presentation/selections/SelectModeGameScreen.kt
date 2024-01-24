@@ -3,12 +3,15 @@ package com.projects.lexstalkpt.presentation.selections
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -64,6 +67,10 @@ fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
 
         3 -> {
             navController.navigate(Routes.PlayingCardsScreen.route)
+            selectionsViewModel.setSelectedMode(0)
+        }
+        5 -> {
+            navController.navigate(Routes.PlayingMemoryScreen.route)
             selectionsViewModel.setSelectedMode(0)
         }
 
@@ -129,10 +136,10 @@ fun getIconButton(modeGame: Int): Int {
 @Composable
 fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: SelectionsViewModel, modeGame: Int) {
     val iconButton = getIconButton(modeGame)
-    Button(modifier = modifier.padding(vertical = 4.dp),
+    Button(modifier = modifier.padding(vertical = 4.dp), shape = RoundedCornerShape(4.dp),
             onClick = { selectionsViewModel.setSelectedMode(modeGame) },
             colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFECA02F),
+                    containerColor = Color.Cyan,
                     contentColor = Color.Black
             )) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {

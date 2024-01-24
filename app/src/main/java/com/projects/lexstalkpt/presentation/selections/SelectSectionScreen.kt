@@ -41,6 +41,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.airbnb.lottie.Lottie
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -49,6 +50,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.data.lessons.LessonItem
 import com.projects.lexstalkpt.data.lessons.ProvideLessons
+import com.projects.lexstalkpt.presentation.Lottie
 import com.projects.lexstalkpt.presentation.Routes
 
 @Composable
@@ -142,22 +144,7 @@ fun InfoLessonItem(lessonInfo: LessonItem, modifier: Modifier, index: Int) {
 
 @Composable
 fun MyLottieAnimation() {
-    val composition by rememberLottieComposition(
-            spec = LottieCompositionSpec.RawRes(R.raw.mariachi)
-    )
-
-    val progress by animateLottieCompositionAsState(
-            composition = composition,
-            iterations = LottieConstants.IterateForever
-    )
-
-    LottieAnimation(
-            modifier = Modifier
-                    .size(100.dp)
-                    .padding(10.dp),
-            composition = composition,
-            progress = progress
-    )
+    Lottie(100, R.raw.monkey_hello)
 }
 
 @Composable
