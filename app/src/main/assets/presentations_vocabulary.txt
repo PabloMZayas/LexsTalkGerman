@@ -1,15 +1,16 @@
 hallo - hola
-auf Wiedersehen - adiós
-bis später - nos vemos
-spät - después
-Abend - tarde
-Tag - día
-guten Morgen - buen día
-morgen - mañana
-Nacht - noche
-kennen - conocer
-guten Tag - buenos días
-gute Nacht - buenas noches
 Name - nombre
 wo - dónde
 wie - cómo
+auf Wiedersehen - adiós
+bis später - nos vemos
+spät - después
+morgen - mañana
+Abend - tarde
+Nacht - noche
+Tag - día
+guten Morgen - buen día - guten tag
+kennen - conocer
+guten Tag - buenos días - guten Morgen
+gute Nacht - buenas noches
+wie geht es dir - ¿Cómo estás? - wie geht's - Wie geht es Ihnen - wie geht es dir? - wie geht's? - Wie geht es Ihnen?

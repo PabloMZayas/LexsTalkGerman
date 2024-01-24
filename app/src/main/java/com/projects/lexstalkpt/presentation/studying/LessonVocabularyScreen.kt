@@ -2,10 +2,8 @@ package com.projects.lexstalkpt.presentation.studying
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -115,9 +113,7 @@ fun ItemVocabulary(itemVocabulary: List<String>, readTextOutLoud: (String) -> Un
                 isAnimationFinished = !isAnimationFinished
             }
     )
-    Card(Modifier
-            .padding(5.dp)
-            .clickable {
+    Card(Modifier.padding(5.dp).clickable {
                 firstColor = !firstColor
                 readTextOutLoud(itemVocabulary[0])
             }, colors = CardDefaults.cardColors(
@@ -125,8 +121,15 @@ fun ItemVocabulary(itemVocabulary: List<String>, readTextOutLoud: (String) -> Un
             )
     ) {
         Column(Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(text = itemVocabulary[0].trim(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-            Text(text = itemVocabulary[1].trim(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+            Text(text = itemVocabulary[1].trim().uppercase(),
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth())
+            Text(text = itemVocabulary[0].trim().uppercase(),
+                    fontSize = 12.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth())
         }
     }
 }

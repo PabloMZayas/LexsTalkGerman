@@ -64,7 +64,7 @@ fun PlayingCardsScreen(navController: NavHostController,
             userAnswer = it
             readTextOutLoud(it)
         }
-        Spacer(modifier = Modifier.size(25.dp))
+        Spacer(modifier = Modifier.size(45.dp))
         ButtonCheckAnswer(shuffledList[0], userAnswer, navController, selectionsViewModel)
     }
 }
