@@ -6,16 +6,21 @@ import androidx.compose.runtime.*
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.projects.lexstalkpt.data.lessons.LessonItem
+import com.projects.lexstalkpt.domain.ProvideIntroductionsLessonsUseCase
 import com.projects.lexstalkpt.domain.ProvideVocabularyFromTXTUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SelectionsViewModel @Inject constructor(
-        private val provideVocabularyFromTXTUseCase: ProvideVocabularyFromTXTUseCase
+        private val provideVocabularyFromTXTUseCase: ProvideVocabularyFromTXTUseCase,
+        private val provideIntroductionsLessonsUseCase: ProvideIntroductionsLessonsUseCase
 ) : ViewModel() {
 
     var myVocabularyList by mutableStateOf(listOf<List<String>>())
+        private set
+
+    var myIntroduction by mutableStateOf(listOf<String>())
         private set
 
     var lives by mutableStateOf(0)
@@ -41,6 +46,11 @@ class SelectionsViewModel @Inject constructor(
     fun setVocabulary() {
         val key = _lessonItemSelected.value!!.lessonVocabularyKey
         myVocabularyList = provideVocabularyFromTXTUseCase.provideVocabularyFromTxt(key)
+    }
+
+    fun setIntroduction() {
+        val key = _lessonItemSelected.value!!.lessonIntroductionKey
+        myIntroduction = provideIntroductionsLessonsUseCase.provideIntroductionFromTxt(key)
     }
 
     fun increaseRightHits() {

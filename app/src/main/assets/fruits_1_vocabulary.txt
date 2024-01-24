@@ -1,4 +1,4 @@
-Fruta - Fruta
+Frucht - Fruta
 Apfel - Manzana
 Banane - Plátano
 Orange - Naranja
@@ -6,5 +6,5 @@ Erdbeere - Fresa
 Traube - Uva
 Wassermelone - Sandía
 Ananas - Piña
-Mango - Mango
+Fernbedienung - Mango
 Zitrone - Limón

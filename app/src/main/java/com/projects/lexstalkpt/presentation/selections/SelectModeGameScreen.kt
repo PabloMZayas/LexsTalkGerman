@@ -19,7 +19,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -130,12 +129,13 @@ fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: Sele
     Button(modifier = modifier.padding(vertical = 4.dp),
             onClick = { selectionsViewModel.setSelectedMode(modeGame) },
             colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFFE9D8BF),
+                    containerColor = Color(0xFFECA02F),
                     contentColor = Color.Black
             )) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Text(text = text.uppercase(),
                     fontWeight = FontWeight.SemiBold,
+                    fontSize = 12.sp,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(vertical = 4.dp).weight(1f))
             Icon(painter = painterResource(id = iconButton), contentDescription = "iconButton" )

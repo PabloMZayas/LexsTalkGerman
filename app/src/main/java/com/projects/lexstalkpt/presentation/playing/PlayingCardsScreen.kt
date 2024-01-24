@@ -176,7 +176,7 @@ fun ButtonOption(modifier: Modifier, text: String, optionSelected: Int, optionBu
             containerColor = if (optionSelected == optionButton) Color(0xFF6D167E) else Color(0xFFB8C2E0),
             contentColor = if (optionSelected == optionButton) Color(0xFFFDFAFE) else Color(0xFF010512),
     )) {
-        Text(text = text.uppercase())
+        Text(text = text.uppercase(), fontSize = 12.sp)
     }
 }
 
