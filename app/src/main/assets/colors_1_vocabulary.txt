@@ -3,7 +3,7 @@ Blau - Azul
 Grün - Verde
 Gelb - Amarillo
 Orange - Naranja
-Lila - Morado
+Lila - Morado - Violett
 Rosa - Rosa
 Braun - Marrón
 Schwarz - Negro

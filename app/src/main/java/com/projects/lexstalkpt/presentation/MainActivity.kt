@@ -19,6 +19,7 @@ import com.projects.lexstalkpt.presentation.playing.PlayingTypeWord
 import com.projects.lexstalkpt.presentation.selections.SelectModeGameScreen
 import com.projects.lexstalkpt.presentation.selections.SelectSectionScreen
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
+import com.projects.lexstalkpt.presentation.studying.LessonIntroductionScreen
 import com.projects.lexstalkpt.presentation.studying.LessonVocabularyScreen
 import com.projects.lexstalkpt.ui.theme.LexsTalkPtTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -49,7 +50,10 @@ class MainActivity : ComponentActivity() {
                             SelectModeGameScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.LessonVocabularyScreen.route) {
-                            LessonVocabularyScreen(navController, selectionsViewModel)
+                            LessonVocabularyScreen(navController, selectionsViewModel) { readTextOutLoud(it) }
+                        }
+                        composable(Routes.LessonIntroductionScreen.route) {
+                            LessonIntroductionScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.PlayingCardsScreen.route) {
                             PlayingCardsScreen(navController, selectionsViewModel) { readTextOutLoud (it) }

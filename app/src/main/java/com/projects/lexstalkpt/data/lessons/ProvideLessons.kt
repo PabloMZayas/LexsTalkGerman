@@ -8,7 +8,7 @@ class ProvideLessons {
             LessonItem(
                     1, 1,
                     "Vocabulario introductorio",
-                    "lecture_1_introductory_vocabulary_introduction.txt",
+                    "introductory_vocabulary_introduction.txt",
                     "vocabulary_introductory_vocabulary.txt",
                     "introductory_vocabulary_sentences.txt",
                     R.drawable.icon_egg),

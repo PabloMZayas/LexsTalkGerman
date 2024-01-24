@@ -53,7 +53,10 @@ fun SelectModeGameScreen(
 fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
                         navController: NavHostController) {
     when (selectionsViewModel.modeSelected) {
-        1 -> {}
+        1 -> {
+            navController.navigate(Routes.LessonIntroductionScreen.route)
+            selectionsViewModel.setSelectedMode(0)
+        }
         2 -> {
             navController.navigate(Routes.LessonVocabularyScreen.route)
             selectionsViewModel.setSelectedMode(0)
