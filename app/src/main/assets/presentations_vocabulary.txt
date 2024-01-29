@@ -1,14 +1,14 @@
 hallo - hola
-Name - nombre
+der Name - el nombre
 wo - dónde
 wie - cómo
 auf Wiedersehen - adiós
 bis später - nos vemos
 spät - después
-morgen - mañana
-Abend - tarde
-Nacht - noche
-Tag - día
+der Morgen - la mañana
+der Abend - la tarde
+die Nacht - la noche
+der Tag - el día
 guten Morgen - buen día - guten tag
 kennen - conocer
 guten Tag - buenos días - guten Morgen

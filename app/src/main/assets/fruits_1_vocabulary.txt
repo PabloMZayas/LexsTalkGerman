@@ -1,10 +1,15 @@
-Frucht - Fruta
-Apfel - Manzana
-Banane - Plátano
-Orange - Naranja
-Erdbeere - Fresa
-Traube - Uva
-Wassermelone - Sandía
-Ananas - Piña
-Fernbedienung - Mango
-Zitrone - Limón
+die Frucht - la fruta - das Obst
+der Apfel - la manzana
+die Banane - el plátano
+die Orange - la naranja
+die Erdbeere - la fresa
+die Traube - la uva
+die Wassermelone - la sandía
+die Ananas - la piña
+die Mango - el mango - der griff
+die Zitrone - el limón
+die Orangen - las naranjas
+die Bananen - los plátanos
+die Äpfel - las manzanas
+die Trauben - las uvas
+die Zitronen - los limones

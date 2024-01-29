@@ -24,6 +24,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
@@ -71,6 +72,7 @@ fun ButtonCheckAnswerTypeWord(rightAnswers: List<String>, userAnswer: String, na
             if (rightHits > 9) {
                 navigateToWinnerDialog(navController)
             } else {
+                initMediaPlayer(R.raw.correct, context)
                 Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
                 navController.navigate(Routes.PlayingTypeWord.route) { popUpTo(Routes.PlayingTypeWord.route) { inclusive = true } }
                 //navigateToNextQuestion(selectionsViewModel, navController)

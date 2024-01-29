@@ -1,10 +1,10 @@
-Brot - Pan - bagel - laib - tostada
-Reis - Arroz
-Nudeln - Pasta - Kohl - Gebäck - Paste - Sahne
-Käse - Queso
-Ei - Huevo - Ball
-Hähnchen - Pollo
-Wasser - Agua
-Fisch - Pescado
-Salat - Ensalada
-Suppe - Sopa
+das Brot - el pan
+der Reis - el arroz
+die Nudeln - la pasta
+der Käse - el queso
+das Ei - el huevo
+das Hähnchen - el pollo
+das Wasser - el agua
+der Fisch - el pescado
+der Salat - la ensalada
+die Suppe - la sopa

@@ -1,6 +1,7 @@
 package com.projects.lexstalkpt.presentation.playing
 
 import android.media.MediaPlayer
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -33,7 +34,7 @@ import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
 fun PlayingScreenMemory(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
-    //InitMediaPlayerBackground()
+    InitMediaPlayerBackground()
     Column(Modifier
             .fillMaxSize()
             .padding(25.dp),
@@ -66,8 +67,11 @@ fun InitMediaPlayerBackground() {
 
 @Composable
 fun ShowCards(selectionsViewModel: SelectionsViewModel, modifier: Modifier) {
+    val lastWordsOpened: MutableList<String> = mutableListOf()
     val vocabularyList = selectionsViewModel.myVocabularyList.shuffled().take(6)
     val myCompleteVocabularyList = mutableListOf<String>()
+    var rightAnswer = ""
+
     vocabularyList.forEach {
         myCompleteVocabularyList.add(it[0])
         myCompleteVocabularyList.add(it[1])
@@ -75,24 +79,38 @@ fun ShowCards(selectionsViewModel: SelectionsViewModel, modifier: Modifier) {
     val myShuffledList = myCompleteVocabularyList.shuffled()
     LazyVerticalGrid(modifier = modifier, columns = GridCells.Fixed(2), content = {
         items(myShuffledList) { word ->
-            ItemMemory(word)
+            vocabularyList.forEachIndexed { _, words ->
+                if (words[0] == word) rightAnswer = words[1]
+                if (words[1] == word) rightAnswer = words[0]
+            }
+            ItemMemory(word, rightAnswer, lastWordsOpened)
         }
     })
 }
 
 @Composable
-fun ItemMemory(word: String) {
+fun ItemMemory(word: String, rightWord: String, lastWordsOpened: MutableList<String>) {
     var isOpen by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
     Card(Modifier
             .clickable {
                 isOpen = !isOpen
+                lastWordsOpened.add(word)
+                if (lastWordsOpened.size == 2) {
+                    if (lastWordsOpened[0] == rightWord)
+                        Toast.makeText(context, "COOL", Toast.LENGTH_SHORT).show()
+                    else
+                        Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
+                    lastWordsOpened.clear()
+                }
             }
-            .padding(5.dp), colors = CardDefaults.cardColors(
+            .padding(horizontal = 5.dp, vertical = 15.dp),
+            colors = CardDefaults.cardColors(
             containerColor = Color.Cyan
     )
     ) {
         Column(Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            if (isOpen) Text(text = word.uppercase(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+            if (isOpen) Text(text = word.uppercase(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 14.sp)
             if (!isOpen) Text(text = "?", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 20.sp)
         }
     }

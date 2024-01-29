@@ -1,6 +1,7 @@
 package com.projects.lexstalkpt.presentation.playing
 
 import android.content.Context
+import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
@@ -102,9 +104,16 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
     if (rightHits > 9) {
         navigateToWinnerDialog(navController)
     } else {
+        initMediaPlayer(R.raw.correct, context)
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         navigateToCards(navController)
     }
+}
+
+fun initMediaPlayer(media: Int, context: Context) {
+    val mediaPlayer = MediaPlayer.create(context, media)
+    mediaPlayer.setVolume(0.2f, 0.2f)
+    mediaPlayer.start()
 }
 
 fun navigateToNextQuestion(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {

@@ -1,10 +1,20 @@
-Hund - Perro
-Katze - Gato
-Elefant - Elefante
-Löwe - León
-Tiger - Tigre
-Giraffe - Jirafa
-Affe - Mono
-Hase - Conejo
-Delfin - Delfín
-Schlange - Serpiente
+der Hund - el perro
+die Katze - la gata/el gato
+der Elefant - el elefante
+der Löwe - el león
+der Tiger - el tigre
+die Giraffe - la jirafa
+der Affe - el mono
+der Hase - la liebre/el conejo
+der Delfin - el delfín
+die Schlange - la serpiente
+die Löwin - la leona
+die Tigerin - La tigresa
+der fisch - El pez
+das Tier - El animal
+die Tiere - Los animales
+die hunde - Los perros
+die Katzen - Los gatos
+die Löwen - Los leones
+die Fische - Los peces
+die Affen - Los monos

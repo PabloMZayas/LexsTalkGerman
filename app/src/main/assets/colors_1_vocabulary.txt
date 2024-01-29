@@ -1,11 +1,11 @@
 Rot - Rojo
 Blau - Azul
-Grün - Verde
+Grün - Verde - Grun
 Gelb - Amarillo
 Orange - Naranja
 Lila - Morado - Violett
-Rosa - Rosa
+Rosa - Rosa - Rosarot
 Braun - Marrón
 Schwarz - Negro
-Weiß - Blanco
+Weiß - Blanco - Weiss
 Grau - Gris

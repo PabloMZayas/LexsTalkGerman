@@ -39,9 +39,7 @@ class SelectionsViewModel @Inject constructor(
         _lessonItemSelected.value = lessonItem
     }
 
-    fun setSelectedMode(mode: Int) {
-        modeSelected = mode
-    }
+    fun setSelectedMode(mode: Int) { modeSelected = mode }
 
     fun setVocabulary() {
         val key = _lessonItemSelected.value!!.lessonVocabularyKey
@@ -53,19 +51,11 @@ class SelectionsViewModel @Inject constructor(
         myIntroduction = provideIntroductionsLessonsUseCase.provideIntroductionFromTxt(key)
     }
 
-    fun increaseRightHits() {
-        rightHits += 1
-    }
+    fun increaseRightHits() { rightHits += 1 }
 
-    fun restartRightHits() {
-        rightHits = 0
-    }
+    fun restartRightHits() { rightHits = 0 }
 
-    fun decreaseLife() {
-        lives -= 1
-    }
+    fun decreaseLife() { lives -= 1 }
 
-    fun restartLives() {
-        lives = 2
-    }
+    fun restartLives() { lives = 2 }
 }

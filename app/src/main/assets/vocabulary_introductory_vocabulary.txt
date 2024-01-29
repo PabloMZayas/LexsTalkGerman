@@ -1,6 +1,6 @@
 hallo - hola
 auf Wiedersehen - adiós
-Name - nombre
+der Name - El nombre
 gut - bien
 ja - sí
 danke - gracias
