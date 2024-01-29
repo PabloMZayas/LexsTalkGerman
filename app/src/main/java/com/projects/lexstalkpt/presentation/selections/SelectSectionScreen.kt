@@ -69,7 +69,7 @@ fun SelectSectionScreen(navController: NavHostController, selectionsViewModel: S
                 navController,
                 selectionsViewModel)
         Spacer(modifier = Modifier.size(10.dp))
-        BottomBar()
+        //BottomBar()
     }
 }
 
@@ -144,7 +144,7 @@ fun InfoLessonItem(lessonInfo: LessonItem, modifier: Modifier, index: Int) {
 
 @Composable
 fun MyLottieAnimation() {
-    Lottie(100, R.raw.monkey_hello)
+    Lottie(70, R.raw.monkey_hello)
 }
 
 @Composable

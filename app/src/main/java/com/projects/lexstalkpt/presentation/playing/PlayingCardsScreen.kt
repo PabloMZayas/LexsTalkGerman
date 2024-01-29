@@ -34,7 +34,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
+import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.Routes
+import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -42,6 +44,7 @@ fun PlayingCardsScreen(navController: NavHostController,
                        selectionsViewModel: SelectionsViewModel,
                        readTextOutLoud: (String) -> Unit) {
 
+    //InitMediaPlayerBackground()
     val myListVocabulary = selectionsViewModel.myVocabularyList
     val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
     val myOptions by remember { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
@@ -94,6 +97,7 @@ fun ButtonCheckAnswer(listOptions: List<String>, userAnswer: String, navControll
 
 fun showError(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
     selectionsViewModel.decreaseLife()
+    initMediaPlayer(R.raw.error_fast, context)
     if (selectionsViewModel.lives < 1) navController.navigate(Routes.LoserScreen.route) { popUpTo(Routes.LoserScreen.route) { inclusive = true } }
     Toast.makeText(context, "Intenta de nuevo", Toast.LENGTH_SHORT).show()
 }
@@ -108,12 +112,6 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         navigateToCards(navController)
     }
-}
-
-fun initMediaPlayer(media: Int, context: Context) {
-    val mediaPlayer = MediaPlayer.create(context, media)
-    mediaPlayer.setVolume(0.2f, 0.2f)
-    mediaPlayer.start()
 }
 
 fun navigateToNextQuestion(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {

@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
+import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -46,22 +47,6 @@ fun PlayingScreenMemory(selectionsViewModel: SelectionsViewModel, navController:
         TextInstructions(Modifier.align(Alignment.CenterHorizontally), "Encuentra los pares \uD83C\uDDF2\uD83C\uDDFD / \uD83C\uDDE9\uD83C\uDDEA")
         Spacer(modifier = Modifier.size(15.dp))
         ShowCards(selectionsViewModel, Modifier)
-    }
-}
-
-@Composable
-fun InitMediaPlayerBackground() {
-    val context = LocalContext.current
-    val myMedia = R.raw.playing_castle
-
-    DisposableEffect(context) {
-        val mediaPlayer = MediaPlayer.create(context, myMedia)
-        mediaPlayer.setVolume(0.2f, 0.2f)
-        mediaPlayer.start()
-
-        onDispose {
-            mediaPlayer.release()
-        }
     }
 }
 

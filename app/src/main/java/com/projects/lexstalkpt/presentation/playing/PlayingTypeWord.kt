@@ -25,13 +25,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
+import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.Routes
+import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
 fun PlayingTypeWord(navController: NavHostController,
                        selectionsViewModel: SelectionsViewModel) {
 
+    //InitMediaPlayerBackground()
     val myListVocabulary = selectionsViewModel.myVocabularyList.map {  listWords ->
         listWords.map {  word ->
             word.trim().lowercase()
