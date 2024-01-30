@@ -28,6 +28,11 @@ import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.Routes
+import com.projects.lexstalkpt.presentation.navigateToCards
+import com.projects.lexstalkpt.presentation.navigateToIntroduction
+import com.projects.lexstalkpt.presentation.navigateToMemoryGame
+import com.projects.lexstalkpt.presentation.navigateToTypeWord
+import com.projects.lexstalkpt.presentation.navigateToVocabulary
 
 @Composable
 fun SelectModeGameScreen(
@@ -54,29 +59,13 @@ fun SelectModeGameScreen(
 fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
                         navController: NavHostController) {
     when (selectionsViewModel.modeSelected) {
-        1 -> {
-            navController.navigate(Routes.LessonIntroductionScreen.route)
-            selectionsViewModel.setSelectedMode(0)
-        }
-        2 -> {
-            navController.navigate(Routes.LessonVocabularyScreen.route)
-            selectionsViewModel.setSelectedMode(0)
-        }
-
-        3 -> {
-            navController.navigate(Routes.PlayingCardsScreen.route)
-            selectionsViewModel.setSelectedMode(0)
-        }
-        5 -> {
-            navController.navigate(Routes.PlayingMemoryScreen.route)
-            selectionsViewModel.setSelectedMode(0)
-        }
-
-        7 -> {
-            navController.navigate(Routes.PlayingTypeWord.route)
-            selectionsViewModel.setSelectedMode(0)
-        }
+        1 -> navigateToIntroduction(navController)
+        2 -> navigateToVocabulary(navController)
+        3 -> navigateToCards(navController)
+        5 -> navigateToMemoryGame(navController)
+        7 -> navigateToTypeWord(navController)
     }
+    selectionsViewModel.setSelectedMode(0)
 }
 
 @Composable

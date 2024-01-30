@@ -76,7 +76,7 @@ fun ButtonGoToChallenge() {
                     containerColor = colorResource(id = R.color.dark_red),
                     contentColor = Color.Yellow
             ),
-            shape = RoundedCornerShape(4.dp)) {
+            shape = RoundedCornerShape(8.dp)) {
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
             Text(text = "DESAFÍO",
                     fontWeight = FontWeight.SemiBold,

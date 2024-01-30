@@ -43,7 +43,6 @@ fun PlayingCardsScreen(navController: NavHostController,
                        selectionsViewModel: SelectionsViewModel,
                        readTextOutLoud: (String) -> Unit) {
 
-    //InitMediaPlayerBackground()
     ObserveIfDialogsAreShowing(selectionsViewModel, navController)
     val myListVocabulary = selectionsViewModel.myVocabularyList
     val shuffledList by rememberSaveable { mutableStateOf(myListVocabulary.shuffled()) }
@@ -116,7 +115,6 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
         navigateToWinnerDialog(navController)
     } else {
         initMediaPlayer(R.raw.correct, context)
-        Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         selectionsViewModel.showDialogHit()
     }
 }

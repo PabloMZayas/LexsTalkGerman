@@ -2,17 +2,23 @@ package com.projects.lexstalkpt.presentation.playing
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -31,15 +37,16 @@ import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 @Composable
 fun DialogHit(show: Boolean, selectionsViewModel: SelectionsViewModel, navController: NavHostController, gameMode: Int = 0) {
     if (show) {
-        Dialog(onDismissRequest = {  }) {
-            Card(modifier = Modifier.border(1.dp, Color.Red)) {
-                Column(modifier = Modifier
-                        .padding(horizontal = 30.dp, vertical = 10.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Bottom) {
-                    HeaderShowHitDialog()
-                    MySpacer(30)
-                    ButtonAcceptShowHit(selectionsViewModel, gameMode, navController)
+        Dialog(onDismissRequest = { }) {
+            Box(contentAlignment = Alignment.BottomCenter, modifier = Modifier.fillMaxSize()) {
+                Card() {
+                    Column(modifier = Modifier.border(1.dp, Color.Red)
+                            .padding(horizontal = 20.dp, vertical = 10.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally) {
+                        HeaderShowHitDialog()
+                        MySpacer(10)
+                        ButtonAcceptShowHit(selectionsViewModel, gameMode, navController)
+                    }
                 }
             }
         }
@@ -51,34 +58,58 @@ fun HeaderShowHitDialog() {
     Row(Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center) {
-        MySimpleImage(drawable = R.drawable.icon_food_one, size = 45)
+        MySimpleImage(drawable = R.drawable.shocked_monkey, size = 45)
         MySpacer(15)
         Text(modifier = Modifier.weight(1f),
-                text = "Bien hecho",
+                text = "BIEN HECHO",
+                fontWeight = FontWeight.SemiBold,
                 fontSize = 18.sp,
                 textAlign = TextAlign.Center)
         MySpacer(15)
-        MySimpleImage(drawable = R.drawable.icon_food_one, size = 45)
+        MySimpleImage(drawable = R.drawable.shocked_monkey, size = 45)
     }
 }
 
 @Composable
 fun ButtonAcceptShowHit(selectionsViewModel: SelectionsViewModel, gameMode: Int, navController: NavHostController) {
-    Button(modifier = Modifier.fillMaxWidth(), onClick = {
+    Button(modifier = Modifier.fillMaxWidth(),
+            colors = ButtonDefaults.buttonColors(
+                    containerColor = colorResource(id = R.color.dark_red),
+                    contentColor = Color.Yellow
+            ),
+            shape = RoundedCornerShape(8.dp),
+            onClick = {
         selectionsViewModel.hideDialogHit()
         navigateToNextQuestion(navController, gameMode)
     }) {
-        Text(text = "Continuar")
+        Text(text = "CONTINUAR")
     }
 }
 
 fun navigateToNextQuestion(navController: NavHostController, modeGame: Int) {
     when (modeGame) {
-        0 -> { navigateToCards(navController) }
-        1 -> { navigateToIntroduction(navController) }
-        2 -> { navigateToVocabulary(navController) }
-        4 -> { navigateToCards(navController) }
-        5 -> { navigateToMemoryGame(navController) }
-        7 -> { navigateToTypeWord(navController) }
+        0 -> {
+            navigateToCards(navController)
+        }
+
+        1 -> {
+            navigateToIntroduction(navController)
+        }
+
+        2 -> {
+            navigateToVocabulary(navController)
+        }
+
+        4 -> {
+            navigateToCards(navController)
+        }
+
+        5 -> {
+            navigateToMemoryGame(navController)
+        }
+
+        7 -> {
+            navigateToTypeWord(navController)
+        }
     }
 }
