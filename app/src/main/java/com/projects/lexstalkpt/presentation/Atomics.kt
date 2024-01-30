@@ -2,6 +2,7 @@ package com.projects.lexstalkpt.presentation
 
 import android.content.Context
 import android.media.MediaPlayer
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -46,4 +47,9 @@ fun InitMediaPlayerBackground() {
             mediaPlayer.release()
         }
     }
+}
+
+@Composable
+fun MySpacer(size: Int = 20) {
+    Spacer(modifier = Modifier.size(size.dp))
 }

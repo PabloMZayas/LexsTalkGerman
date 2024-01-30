@@ -9,7 +9,7 @@ class ProvideLessons {
                     1, 1,
                     "Vocabulario introductorio",
                     "introductory_vocabulary_introduction.txt",
-                    "vocabulary_introductory_vocabulary.txt",
+                    "introductory_vocabulary_vocabulary.txt",
                     "introductory_vocabulary_sentences.txt",
                     R.drawable.icon_color_chicken),
 

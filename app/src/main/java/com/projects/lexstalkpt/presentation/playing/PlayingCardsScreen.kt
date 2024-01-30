@@ -102,10 +102,10 @@ fun showError(context: Context, selectionsViewModel: SelectionsViewModel, navCon
     Toast.makeText(context, "Intenta de nuevo", Toast.LENGTH_SHORT).show()
 }
 
-fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
+fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController, neededHits: Int = 10) {
     selectionsViewModel.increaseRightHits()
     val rightHits = selectionsViewModel.rightHits
-    if (rightHits > 9) {
+    if (rightHits > neededHits-1) {
         navigateToWinnerDialog(navController)
     } else {
         initMediaPlayer(R.raw.correct, context)

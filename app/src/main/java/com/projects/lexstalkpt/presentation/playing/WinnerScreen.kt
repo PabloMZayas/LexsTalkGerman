@@ -25,6 +25,8 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.projects.lexstalkpt.R
+import com.projects.lexstalkpt.presentation.MySpacer
+import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -36,11 +38,19 @@ fun WinnerScreen(navController: NavHostController, selectionsViewModel: Selectio
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center) {
         TextWinnerOrLoser(true)
-        Spacer(modifier = Modifier.size(30.dp))
+        MySpacer(30)
+        TextShowExperience(selectionsViewModel)
         LottieWinnerOrLoser(true)
-        Spacer(modifier = Modifier.size(30.dp))
+        MySpacer(30)
         ButtonAccept(navController)
     }
+}
+
+@Composable
+fun TextShowExperience(selectionsViewModel: SelectionsViewModel) {
+    Text(text = "Experiencia acumulada: 320")
+    MySpacer(20)
+    Text(text = "+8 XP")
 }
 
 @Composable
@@ -55,7 +65,7 @@ fun ButtonAccept(navController: NavHostController) {
 
 @Composable
 fun LottieWinnerOrLoser(isWinner: Boolean) {
-    val lottieToShow = if (isWinner) R.raw.mariachi else R.raw.donkey_one
+    val lottieToShow = if (isWinner) R.raw.monkey_dancing_two else R.raw.donkey_one
     val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(lottieToShow))
     val progress by animateLottieCompositionAsState(composition = composition, iterations = LottieConstants.IterateForever)
     LottieAnimation(modifier = Modifier.size(140.dp), composition = composition, progress = progress)

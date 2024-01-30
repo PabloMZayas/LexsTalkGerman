@@ -9,9 +9,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.playing.PlayingCardsScreen
 import com.projects.lexstalkpt.presentation.playing.WinnerScreen
 import com.projects.lexstalkpt.presentation.playing.LoserScreen
@@ -66,6 +68,7 @@ class MainActivity : ComponentActivity() {
                             PlayingScreenMemory(selectionsViewModel, navController)
                         }
                         composable(Routes.WinnerScreen.route) {
+                            initMediaPlayer(R.raw.winner, LocalContext.current)
                             WinnerScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.LoserScreen.route) {

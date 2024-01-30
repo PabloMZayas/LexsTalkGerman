@@ -1,7 +1,9 @@
 package com.projects.lexstalkpt.presentation.playing
 
-import android.media.MediaPlayer
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -16,7 +18,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -29,13 +30,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.projects.lexstalkpt.R
-import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
 fun PlayingScreenMemory(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
-    InitMediaPlayerBackground()
+    //InitMediaPlayerBackground()
     Column(Modifier
             .fillMaxSize()
             .padding(25.dp),
@@ -56,6 +55,7 @@ fun ShowCards(selectionsViewModel: SelectionsViewModel, modifier: Modifier) {
     val vocabularyList = selectionsViewModel.myVocabularyList.shuffled().take(6)
     val myCompleteVocabularyList = mutableListOf<String>()
     var rightAnswer = ""
+    var previousIsOpen by rememberSaveable { mutableStateOf(true) }
 
     vocabularyList.forEach {
         myCompleteVocabularyList.add(it[0])
@@ -68,35 +68,49 @@ fun ShowCards(selectionsViewModel: SelectionsViewModel, modifier: Modifier) {
                 if (words[0] == word) rightAnswer = words[1]
                 if (words[1] == word) rightAnswer = words[0]
             }
-            ItemMemory(word, rightAnswer, lastWordsOpened)
+            ItemMemory(word, rightAnswer, lastWordsOpened, previousIsOpen,
+                    { previousIsOpen = false },
+                    { previousIsOpen = true })
         }
     })
 }
 
 @Composable
-fun ItemMemory(word: String, rightWord: String, lastWordsOpened: MutableList<String>) {
+fun ItemMemory(word: String,
+               rightWord: String,
+               lastWordsOpened: MutableList<String>,
+               previousIsOpen: Boolean,
+               closePrevious: () -> Unit,
+               openPrevious: () -> Unit) {
     var isOpen by rememberSaveable { mutableStateOf(false) }
+
     val context = LocalContext.current
-    Card(Modifier
-            .clickable {
-                isOpen = !isOpen
+    Card(border = BorderStroke(2.dp, Color.Red),modifier = Modifier
+            .clickable(true) {
+                isOpen = true
                 lastWordsOpened.add(word)
                 if (lastWordsOpened.size == 2) {
-                    if (lastWordsOpened[0] == rightWord)
-                        Toast.makeText(context, "COOL", Toast.LENGTH_SHORT).show()
-                    else
-                        Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
+                    if (lastWordsOpened[0] == rightWord) {
+                        //Toast.makeText(context, "COOL", Toast.LENGTH_SHORT).show()
+                    } else {
+                        //Toast.makeText(context, "ERROR", Toast.LENGTH_SHORT).show()
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            closePrevious()
+                            isOpen = false
+                        }, 1000)
+                    }
                     lastWordsOpened.clear()
+                } else {
+                    openPrevious()
                 }
             }
-            .padding(horizontal = 5.dp, vertical = 15.dp),
+            .padding(horizontal = 5.dp, vertical = 10.dp),
             colors = CardDefaults.cardColors(
-            containerColor = Color.Cyan
-    )
+            containerColor = Color.Cyan)
     ) {
-        Column(Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-            if (isOpen) Text(text = word.uppercase(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 14.sp)
-            if (!isOpen) Text(text = "?", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 20.sp)
+        Column(Modifier.padding(horizontal = 8.dp, vertical = 16.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+            if (isOpen && previousIsOpen) Text(text = word.uppercase(), textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 14.sp)
+            else Text(text = "?", textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth(), fontSize = 20.sp)
         }
     }
 }
