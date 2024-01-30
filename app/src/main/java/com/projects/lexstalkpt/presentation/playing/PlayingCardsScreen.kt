@@ -1,7 +1,6 @@
 package com.projects.lexstalkpt.presentation.playing
 
 import android.content.Context
-import android.media.MediaPlayer
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -34,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
-import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
@@ -45,6 +43,7 @@ fun PlayingCardsScreen(navController: NavHostController,
                        readTextOutLoud: (String) -> Unit) {
 
     //InitMediaPlayerBackground()
+    ObserveIfDialogsAreShowing(selectionsViewModel, navController)
     val myListVocabulary = selectionsViewModel.myVocabularyList
     val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
     val myOptions by remember { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
@@ -71,6 +70,13 @@ fun PlayingCardsScreen(navController: NavHostController,
         }
         Spacer(modifier = Modifier.size(45.dp))
         ButtonCheckAnswer(shuffledList[0], userAnswer, navController, selectionsViewModel)
+    }
+}
+
+@Composable
+fun ObserveIfDialogsAreShowing(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
+    if (selectionsViewModel.showHitDialog) {
+        DialogHit(show = true, selectionsViewModel = selectionsViewModel, navController, 4)
     }
 }
 
@@ -110,7 +116,8 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
     } else {
         initMediaPlayer(R.raw.correct, context)
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
-        navigateToCards(navController)
+        selectionsViewModel.showDialogHit()
+        //navigateToCards(navController)
     }
 }
 

@@ -23,6 +23,9 @@ class SelectionsViewModel @Inject constructor(
     var myIntroduction by mutableStateOf(listOf<String>())
         private set
 
+    var showHitDialog by mutableStateOf(false)
+        private set
+
     var lives by mutableStateOf(0)
         private set
 
@@ -58,4 +61,12 @@ class SelectionsViewModel @Inject constructor(
     fun decreaseLife() { lives -= 1 }
 
     fun restartLives() { lives = 2 }
+
+    fun showDialogHit() {
+        showHitDialog = true
+    }
+
+    fun hideDialogHit() {
+        showHitDialog = false
+    }
 }
