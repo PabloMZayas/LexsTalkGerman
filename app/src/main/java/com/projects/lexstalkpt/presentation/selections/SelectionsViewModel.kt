@@ -26,6 +26,9 @@ class SelectionsViewModel @Inject constructor(
     var showHitDialog by mutableStateOf(false)
         private set
 
+    var showErrorDialog by mutableStateOf(false)
+        private set
+
     var lives by mutableStateOf(0)
         private set
 
@@ -68,5 +71,13 @@ class SelectionsViewModel @Inject constructor(
 
     fun hideDialogHit() {
         showHitDialog = false
+    }
+
+    fun showErrorDialog() {
+        showErrorDialog = true
+    }
+
+    fun hideErrorDialog() {
+        showErrorDialog = false
     }
 }

@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -59,10 +60,12 @@ fun MySpacer(size: Int = 20) {
 }
 
 @Composable
-fun MySimpleImage(@DrawableRes drawable: Int, size: Int) {
-    Image(modifier = Modifier.size(size.dp),
+fun MySimpleImage(@DrawableRes drawable: Int, size: Int, mirror: Boolean = false) {
+    Image(modifier =
+    Modifier.size(size.dp)
+            .graphicsLayer(rotationY = if (mirror) 180f else 0f),
             painter = painterResource(id = drawable),
-            contentDescription = "simple image")
+            contentDescription = "simple image",)
 }
 
 fun navigateToVocabulary(navController: NavHostController) {

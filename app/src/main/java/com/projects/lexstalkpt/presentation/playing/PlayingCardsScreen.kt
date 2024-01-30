@@ -1,7 +1,6 @@
 package com.projects.lexstalkpt.presentation.playing
 
 import android.content.Context
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -33,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
-import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.navigateToWinnerDialog
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
@@ -43,12 +41,12 @@ fun PlayingCardsScreen(navController: NavHostController,
                        selectionsViewModel: SelectionsViewModel,
                        readTextOutLoud: (String) -> Unit) {
 
-    ObserveIfDialogsAreShowing(selectionsViewModel, navController)
     val myListVocabulary = selectionsViewModel.myVocabularyList
     val shuffledList by rememberSaveable { mutableStateOf(myListVocabulary.shuffled()) }
     val myOptions by rememberSaveable { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
     val rightAnswer by rememberSaveable { mutableStateOf(shuffledList[0][1]) }
     var userAnswer by rememberSaveable { mutableStateOf("") }
+    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, navController)
 
     Column(Modifier
             .fillMaxSize()
@@ -74,9 +72,17 @@ fun PlayingCardsScreen(navController: NavHostController,
 }
 
 @Composable
-fun ObserveIfDialogsAreShowing(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
+fun ObserveIfDialogsAreShowing(selectionsViewModel: SelectionsViewModel, navController: NavHostController, rightAnswer: List<String>, userAnswer: String, navController1: NavHostController) {
     if (selectionsViewModel.showHitDialog) {
         DialogHit(show = true, selectionsViewModel = selectionsViewModel, navController, 4)
+    }
+
+    if (selectionsViewModel.showErrorDialog) {
+        DialogError(show = true,
+                selectionsViewModel = selectionsViewModel,
+                rightAnswerOptions = rightAnswer,
+                yourAnswer = userAnswer,
+                navController = navController)
     }
 }
 
@@ -104,8 +110,8 @@ fun ButtonCheckAnswer(listOptions: List<String>, userAnswer: String, navControll
 fun showError(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
     selectionsViewModel.decreaseLife()
     initMediaPlayer(R.raw.error_fast, context)
-    if (selectionsViewModel.lives < 1) navController.navigate(Routes.LoserScreen.route) { popUpTo(Routes.LoserScreen.route) { inclusive = true } }
-    Toast.makeText(context, "Intenta de nuevo", Toast.LENGTH_SHORT).show()
+    //if (selectionsViewModel.lives < 1) navController.navigate(Routes.LoserScreen.route) { popUpTo(Routes.LoserScreen.route) { inclusive = true } }
+    selectionsViewModel.showErrorDialog()
 }
 
 fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navController: NavHostController, neededHits: Int = 10) {
