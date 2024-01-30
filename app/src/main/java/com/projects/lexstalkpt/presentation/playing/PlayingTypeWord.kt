@@ -28,6 +28,7 @@ import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.initMediaPlayer
+import com.projects.lexstalkpt.presentation.navigateToWinnerDialog
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable

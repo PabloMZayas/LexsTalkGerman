@@ -20,7 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,6 +35,7 @@ import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.initMediaPlayer
+import com.projects.lexstalkpt.presentation.navigateToWinnerDialog
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -45,10 +46,10 @@ fun PlayingCardsScreen(navController: NavHostController,
     //InitMediaPlayerBackground()
     ObserveIfDialogsAreShowing(selectionsViewModel, navController)
     val myListVocabulary = selectionsViewModel.myVocabularyList
-    val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
-    val myOptions by remember { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
-    val rightAnswer by remember { mutableStateOf(shuffledList[0][1]) }
-    var userAnswer by remember { mutableStateOf("") }
+    val shuffledList by rememberSaveable { mutableStateOf(myListVocabulary.shuffled()) }
+    val myOptions by rememberSaveable { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
+    val rightAnswer by rememberSaveable { mutableStateOf(shuffledList[0][1]) }
+    var userAnswer by rememberSaveable { mutableStateOf("") }
 
     Column(Modifier
             .fillMaxSize()
@@ -117,40 +118,14 @@ fun showHit(context: Context, selectionsViewModel: SelectionsViewModel, navContr
         initMediaPlayer(R.raw.correct, context)
         Toast.makeText(context, "Bien hecho", Toast.LENGTH_SHORT).show()
         selectionsViewModel.showDialogHit()
-        //navigateToCards(navController)
     }
-}
-
-fun navigateToNextQuestion(selectionsViewModel: SelectionsViewModel, navController: NavHostController) {
-    when (selectionsViewModel.modeSelected) {
-        0 -> { navigateToCards(navController) }
-        1 -> { navigateToVocabulary(navController) }
-        2 -> { navigateToCards(navController) }
-        7 -> { navigateToTypeWord(navController) }
-    }
-}
-
-fun navigateToVocabulary(navController: NavHostController) {
-    navController.navigate(Routes.LessonVocabularyScreen.route) { popUpTo(Routes.LessonVocabularyScreen.route) { inclusive = true } }
-}
-
-fun navigateToCards(navController: NavHostController) {
-    navController.navigate(Routes.PlayingCardsScreen.route) { popUpTo(Routes.PlayingCardsScreen.route) { inclusive = true } }
-}
-
-fun navigateToTypeWord(navController: NavHostController) {
-    navController.navigate(Routes.PlayingTypeWord.route) { popUpTo(Routes.PlayingTypeWord.route) { inclusive = true } }
-}
-
-fun navigateToWinnerDialog(navController: NavHostController) {
-    navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
 }
 
 @Composable
 fun OptionsButtons(myShuffledList: List<List<String>>,
                    onClick: (String) -> Unit) {
 
-    var optionSelected by remember { mutableStateOf(0) }
+    var optionSelected by rememberSaveable { mutableStateOf(0) }
     Row(Modifier
             .padding(top = 10.dp)) {
         ButtonOption(Modifier

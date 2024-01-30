@@ -1,16 +1,13 @@
 package com.projects.lexstalkpt.presentation.selections
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -29,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
+import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.Routes
 
 @Composable
@@ -105,8 +103,7 @@ fun TopButtons(modifier: Modifier, selectionsViewModel: SelectionsViewModel) {
 @Composable
 fun ImageLesson(selectionsViewModel: SelectionsViewModel) {
     val lessonItemSelected by selectionsViewModel.lessonItemSelected.observeAsState()
-    Image(painter = painterResource(id = lessonItemSelected!!.lessonDrawable),
-            contentDescription = "lesson image", Modifier.size(100.dp))
+    MySimpleImage(drawable = lessonItemSelected!!.lessonDrawable, size = 100)
 }
 
 @Composable
@@ -147,7 +144,9 @@ fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: Sele
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 12.sp,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(vertical = 4.dp).weight(1f))
+                    modifier = Modifier
+                            .padding(vertical = 4.dp)
+                            .weight(1f))
             Icon(painter = painterResource(id = iconButton), contentDescription = "iconButton" )
         }
     }

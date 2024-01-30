@@ -21,6 +21,11 @@ import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.MySpacer
+import com.projects.lexstalkpt.presentation.navigateToCards
+import com.projects.lexstalkpt.presentation.navigateToIntroduction
+import com.projects.lexstalkpt.presentation.navigateToMemoryGame
+import com.projects.lexstalkpt.presentation.navigateToTypeWord
+import com.projects.lexstalkpt.presentation.navigateToVocabulary
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -61,10 +66,19 @@ fun HeaderShowHitDialog() {
 fun ButtonAcceptShowHit(selectionsViewModel: SelectionsViewModel, gameMode: Int, navController: NavHostController) {
     Button(modifier = Modifier.fillMaxWidth(), onClick = {
         selectionsViewModel.hideDialogHit()
-        when(gameMode) {
-            4 -> navigateToCards(navController)
-        }
+        navigateToNextQuestion(navController, gameMode)
     }) {
         Text(text = "Continuar")
+    }
+}
+
+fun navigateToNextQuestion(navController: NavHostController, modeGame: Int) {
+    when (modeGame) {
+        0 -> { navigateToCards(navController) }
+        1 -> { navigateToIntroduction(navController) }
+        2 -> { navigateToVocabulary(navController) }
+        4 -> { navigateToCards(navController) }
+        5 -> { navigateToMemoryGame(navController) }
+        7 -> { navigateToTypeWord(navController) }
     }
 }

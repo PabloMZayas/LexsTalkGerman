@@ -41,16 +41,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.airbnb.lottie.Lottie
-import com.airbnb.lottie.compose.LottieAnimation
-import com.airbnb.lottie.compose.LottieCompositionSpec
-import com.airbnb.lottie.compose.LottieConstants
-import com.airbnb.lottie.compose.animateLottieCompositionAsState
-import com.airbnb.lottie.compose.rememberLottieComposition
 import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.data.lessons.LessonItem
 import com.projects.lexstalkpt.data.lessons.ProvideLessons
 import com.projects.lexstalkpt.presentation.Lottie
+import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.Routes
 
 @Composable
@@ -121,10 +116,7 @@ fun LessonItem(lessonItem: LessonItem, index: Int, navController: NavHostControl
                 .fillMaxWidth()
                 .padding(horizontal = 10.dp, vertical = 15.dp),
                 verticalAlignment = Alignment.CenterVertically) {
-            Image(painter = painterResource(
-                    id = lessonItem.lessonDrawable),
-                    contentDescription = "icon_lesson",
-                    Modifier.size(30.dp))
+            MySimpleImage(drawable = lessonItem.lessonDrawable, size = 30)
             InfoLessonItem(lessonItem, Modifier.weight(1f), index)
         }
     }
