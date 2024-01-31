@@ -88,6 +88,10 @@ fun navigateToMemoryGame(navController: NavHostController) {
     navController.navigate(Routes.PlayingMemoryScreen.route) { popUpTo(Routes.PlayingMemoryScreen.route) { inclusive = true } }
 }
 
+fun navigateToListenWords(navController: NavHostController) {
+    navController.navigate(Routes.PlayingListenWordsScreen.route) { popUpTo(Routes.PlayingListenWordsScreen.route) { inclusive = true } }
+}
+
 fun navigateToWinnerDialog(navController: NavHostController) {
     navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
 }

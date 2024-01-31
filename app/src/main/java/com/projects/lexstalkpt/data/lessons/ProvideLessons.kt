@@ -44,18 +44,18 @@ class ProvideLessons {
                     R.drawable.icon_numbers_one),
 
             LessonItem(6, 1,
-                    "Saludos y presentaciones",
-                    "lecture_1_presentations_introduction.txt",
-                    "presentations_vocabulary.txt",
-                    "presentations_sentences.txt",
-                    R.drawable.icon_waving_hand),
-
-            LessonItem(7, 1,
                     "Pronombres personales",
                     "lecture_5_personal_pronouns_2_introduction.txt",
                     "personal_pronouns_1_vocabulary.txt",
                     "personal_pronouns_sentences.txt",
                     R.drawable.icon_group),
+
+            LessonItem(7, 1,
+                    "Saludos y despedidas",
+                    "lecture_1_presentations_introduction.txt",
+                    "presentations_vocabulary.txt",
+                    "presentations_sentences.txt",
+                    R.drawable.icon_waving_hand),
 
             LessonItem(8, 1,
                     "Comidas - primera parte",
@@ -66,7 +66,7 @@ class ProvideLessons {
 
 
             LessonItem(9, 1,
-                    "Verbo TO BE",
+                    "Verbo SEIN",
                     "to_be_introduction.txt",
                     "to_be_vocabulary.txt",
                     "to_be_sentences.txt",
@@ -78,5 +78,12 @@ class ProvideLessons {
                     "numbers_2_vocabulary.txt",
                     "numbers_2_sentences.txt",
                     R.drawable.icon_numbers_two),
+
+            LessonItem(11, 1,
+                    "Adjetivos - primera parte",
+                    "adjectives_1_introduction.txt",
+                    "adjectives_1_vocabulary.txt",
+                    "adjectives_1_sentences.txt",
+                    R.drawable.icon_adjectives_1),
     )
 }

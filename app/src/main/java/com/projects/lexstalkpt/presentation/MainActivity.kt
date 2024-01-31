@@ -17,6 +17,7 @@ import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.playing.PlayingCardsScreen
 import com.projects.lexstalkpt.presentation.playing.WinnerScreen
 import com.projects.lexstalkpt.presentation.playing.LoserScreen
+import com.projects.lexstalkpt.presentation.playing.PlayingListenWordsScreen
 import com.projects.lexstalkpt.presentation.playing.PlayingScreenMemory
 import com.projects.lexstalkpt.presentation.playing.PlayingTypeWord
 import com.projects.lexstalkpt.presentation.selections.SelectModeGameScreen
@@ -66,6 +67,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(Routes.PlayingMemoryScreen.route) {
                             PlayingScreenMemory(selectionsViewModel, navController)
+                        }
+                        composable(Routes.PlayingListenWordsScreen.route) {
+                            PlayingListenWordsScreen(selectionsViewModel, navController) { readTextOutLoud(it)}
                         }
                         composable(Routes.WinnerScreen.route) {
                             initMediaPlayer(R.raw.winner, LocalContext.current)

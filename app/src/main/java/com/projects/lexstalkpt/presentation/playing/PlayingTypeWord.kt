@@ -35,7 +35,6 @@ import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 fun PlayingTypeWord(navController: NavHostController,
                        selectionsViewModel: SelectionsViewModel) {
 
-    //InitMediaPlayerBackground()
     val myListVocabulary = selectionsViewModel.myVocabularyList.map {  listWords ->
         listWords.map {  word ->
             word.trim().lowercase()
@@ -44,6 +43,7 @@ fun PlayingTypeWord(navController: NavHostController,
     val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
     val rightAnswers by remember { mutableStateOf(shuffledList[0]) }
     var userAnswer by remember { mutableStateOf("") }
+    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, navController)
 
     Column(Modifier
             .fillMaxSize()

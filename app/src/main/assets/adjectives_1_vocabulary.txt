@@ -1,0 +1,24 @@
+klein - pequeño - kleiner - kleines
+groß - grande - größer - großes
+schnell - rápido - schneller - schnelles
+langsam - lento - langsamer - langsames
+stark - fuerte - stärker - starkes
+schwach - débil - schwächer - schwaches
+hell - claro/brillante - heller-  helles
+dunkel - oscuro - dunkler - dunkles
+gut - bueno - besser - gutes
+schlecht - malo - schlechter - schlechtes
+alt - viejo - älter - altes
+jung - joven - jünger - junges
+schön - bonito/hermoso - schöner, schönes
+hässlich - feo - hässlicher - hässliches
+klug - inteligente - klüger - kluges
+dumm - tonto  -dümmer - dummes
+fröhlich - alegre - fröhlicher - fröhliches
+traurig - triste - trauriger - trauriges
+sauer - ácido/enfadado - saurer - saures
+glücklich - feliz - glücklicher - glückliches
+dick - gordo/grueso - dickere - dicke
+dünn - delgado - dünnere - dünne
+ruhig - tranquilo - ruhigere - ruhige
+laut - ruidoso - lautere - laute

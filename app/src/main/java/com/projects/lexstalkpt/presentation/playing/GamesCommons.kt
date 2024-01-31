@@ -55,11 +55,11 @@ fun LottieClock() {
 }
 
 @Composable
-fun ShowProgress(selectionsViewModel: SelectionsViewModel) {
+fun ShowProgress(selectionsViewModel: SelectionsViewModel, maxProgress: Int = 10) {
     val rightHits = selectionsViewModel.rightHits
     Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
-        LinearProgressIndicator(progress = rightHits.toFloat() / 10, Modifier.weight(1f))
-        Text(text = "$rightHits/10", Modifier.padding(start = 10.dp))
+        LinearProgressIndicator(progress = rightHits.toFloat() / maxProgress, Modifier.weight(1f))
+        Text(text = "$rightHits/$maxProgress", Modifier.padding(start = 10.dp))
     }
 }
 

@@ -30,6 +30,7 @@ import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.navigateToCards
 import com.projects.lexstalkpt.presentation.navigateToIntroduction
+import com.projects.lexstalkpt.presentation.navigateToListenWords
 import com.projects.lexstalkpt.presentation.navigateToMemoryGame
 import com.projects.lexstalkpt.presentation.navigateToTypeWord
 import com.projects.lexstalkpt.presentation.navigateToVocabulary
@@ -62,6 +63,7 @@ fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
         1 -> navigateToIntroduction(navController)
         2 -> navigateToVocabulary(navController)
         3 -> navigateToCards(navController)
+        4 -> navigateToListenWords(navController)
         5 -> navigateToMemoryGame(navController)
         7 -> navigateToTypeWord(navController)
     }
