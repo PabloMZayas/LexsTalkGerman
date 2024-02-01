@@ -1,33 +1,33 @@
 El Präsens (Presente) en alemán se utiliza para varias situaciones, incluyendo acciones cotidianas, hechos generales y para describir eventos que están ocurriendo en el momento presente.
 Aquí hay algunas pautas:
 
-1. Acciones Cotidianas:
+*1. Acciones Cotidianas:*
 Se utiliza para describir acciones que ocurren regularmente en el presente, como hábitos, rutinas diarias y actividades repetitivas.
 Ejemplo: "Ich lese jeden Abend ein Buch." (Leo un libro todas las noches.)
 
-2. Hechos Generales:
+*2. Hechos Generales:*
 Sirve para expresar hechos generales y verdades universales.
 Ejemplo: "Die Sonne geht im Osten auf." (El sol sale por el este.)
 
-3. Acciones en Progreso:
+*3. Acciones en Progreso:*
 Se utiliza para describir acciones que están ocurriendo en el momento presente.
 Ejemplo: "Ich arbeite gerade." (Estoy trabajando en este momento.)
 
-4. Comentarios en Presentaciones y Descripciones:
+*4. Presentaciones y Descripciones:*
 Es común utilizar el presente para describir características de personas, lugares u objetos en presentaciones o descripciones.
 Ejemplo: "Die Stadt ist sehr schön." (La ciudad es muy bonita.)
 
-5. Relatos y Narraciones:
+*5. Relatos y Narraciones:*
 Aunque en la escritura narrativa a menudo se utiliza el pasado, en alemán también se puede usar el presente para darle inmediatez a la narración.
 Ejemplo: "Ich öffne die Tür und sehe eine Überraschung." (Abro la puerta y veo una sorpresa.)
 
 
-***FORMACIÓN DEL Präsens ***
+*FORMACIÓN*
 
-Forma Afirmativa:
+*Forma Afirmativa:*
 La forma afirmativa en presente se construye generalmente de la siguiente manera:
 
-Sujeto (Ich, Du, Er/Sie/Es, Wir, Ihr, Sie) + Verbo en presente.
+Sujeto + Verbo en presente.
 Ejemplos:
 Ich lese. (Yo leo.)
 Du spielst. (Tú juegas.)
@@ -36,9 +36,7 @@ Wir sprechen. (Nosotros hablamos.)
 Ihr tanzt. (Vosotros bailáis.)
 Sie lernen. (Ellos/Ellas/Ustedes aprenden.)
 
---------------
-
-Forma Negativa:
+*Forma Negativa:*
 La forma negativa se construye añadiendo "nicht" después del verbo:
 
 Sujeto + nicht + Verbo en presente.
@@ -50,9 +48,7 @@ Wir sprechen nicht. (Nosotros no hablamos.)
 Ihr tanzt nicht. (Vosotros no bailáis.)
 Sie lernen nicht. (Ellos/Ellas/Ustedes no aprenden.)
 
---------------
-
-Forma Interrogativa:
+*Forma Interrogativa:*
 La forma interrogativa se construye invirtiendo el orden del sujeto y el verbo:
 
 Verbo + Sujeto.

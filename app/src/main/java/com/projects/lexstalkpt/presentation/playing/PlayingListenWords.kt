@@ -117,18 +117,18 @@ fun ItemReadWord(modifier: Modifier, word: String, isSelected: Boolean,  isMatch
                         onClickListener(word)
                     },
             colors = CardDefaults.cardColors(
-                    containerColor = if (isSelected) Color.Red else Color.Cyan,
+                    containerColor = if (isSelected) Color.Red else if (isMatched) Color.Green else Color.Cyan,
             )
     ) {
         Column(
-                Modifier.padding(horizontal = 8.dp, vertical = 16.dp),
+                Modifier.padding(horizontal = 8.dp, vertical = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                     text = word.uppercase(),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
-                    fontSize = 14.sp
+                    fontSize = 12.sp
             )
         }
     }

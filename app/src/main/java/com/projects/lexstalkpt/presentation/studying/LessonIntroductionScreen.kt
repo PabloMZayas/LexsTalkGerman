@@ -12,13 +12,19 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -68,9 +74,43 @@ fun ShowLesson(selectionsViewModel: SelectionsViewModel) {
     val myIntroduction = selectionsViewModel.myIntroduction
     var fullIntroduction = ""
     myIntroduction.forEach {
-        fullIntroduction += "\n\n$it"
+        fullIntroduction += "$it\n\n"
     }
-    Text(text = fullIntroduction,
-            textAlign = TextAlign.Justify,
-            fontSize = 18.sp)
+    TextBoldAsterisks(tuString = fullIntroduction, 20)
 }
+
+@Composable
+fun TextBoldAsterisks(tuString: String, fontSize: Int = 0) {
+    val annotatedString = buildAnnotatedString {
+        val boldChar = '*'
+
+        tuString.split(boldChar).forEachIndexed { index, substring ->
+            if (index % 2 == 0) {
+                withStyle(style = SpanStyle(
+                        fontSize = LocalTextStyle.current.fontSize,
+                        fontFamily = LocalTextStyle.current.fontFamily,
+                        color = LocalTextStyle.current.color
+                )) {
+                    append(substring)
+                }
+            } else {
+                withStyle(style = SpanStyle(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = if (fontSize != 0) fontSize.sp else LocalTextStyle.current.fontSize,
+                        fontFamily = LocalTextStyle.current.fontFamily,
+                        color = LocalTextStyle.current.color
+                )) {
+                    append(substring)
+                }
+            }
+        }
+    }
+
+    Text(
+            text = annotatedString,
+            textAlign = TextAlign.Justify,
+            fontSize = 18.sp,
+            fontFamily = FontFamily(Font(R.font.type_wr))
+    )
+}
+
