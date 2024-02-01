@@ -1,0 +1,20 @@
+Ich lese - Yo leo
+Du spielst - Tú juegas
+Er arbeitet - Él trabaja
+Sie arbeitet - Ella trabaja
+Wir sprechen - Nosotros hablamos
+Ihr tanzt - Vosotros bailáis
+Sie lernen - Ellos/Ellas aprenden
+Ich lese nicht - Yo no leo
+Du spielst nicht - Tú no juegas
+Er arbeitet nicht - Él no trabaja
+Sie arbeitet nicht - Ella no trabaja
+Wir sprechen nicht - Nosotros no hablamos
+Ihr tanzt nicht - Vosotros no bailáis
+Sie lernen nicht - Ellos/Ellas no aprenden
+Liest du - ¿Tú lees?
+Spielst du - ¿Tú juegas?
+Arbeitet er - ¿Él trabaja?
+Sprechen wir - ¿Hablamos nosotros?
+Tanzt ihr - ¿Vosotros bailáis?
+Lernen sie - ¿Ellos/Ellas/Ustedes aprenden?

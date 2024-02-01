@@ -71,6 +71,6 @@ fun ShowLesson(selectionsViewModel: SelectionsViewModel) {
         fullIntroduction += "\n\n$it"
     }
     Text(text = fullIntroduction,
-            textAlign = TextAlign.Center,
-            fontSize = 20.sp)
+            textAlign = TextAlign.Justify,
+            fontSize = 18.sp)
 }

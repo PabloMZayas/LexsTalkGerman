@@ -85,5 +85,33 @@ class ProvideLessons {
                     "adjectives_1_vocabulary.txt",
                     "adjectives_1_sentences.txt",
                     R.drawable.icon_adjectives_1),
+
+            LessonItem(12, 1,
+                    "Verbos - primera parte",
+                    "verbs_1_introduction.txt",
+                    "verbs_1_vocabulary.txt",
+                    "verbs_1_sentences.txt",
+                    R.drawable.icon_verbs),
+
+            LessonItem(13, 1,
+                    "Presente - introducción",
+                    "present_1_introduction.txt",
+                    "present_1_vocabulary.txt",
+                    "present_1_sentences.txt",
+                    R.drawable.icon_present),
+
+            LessonItem(14, 1,
+                    "Partes del cuerpo - primera parte",
+                    "body_1_introduction.txt",
+                    "body_1_vocabulary.txt",
+                    "body_1_sentences.txt",
+                    R.drawable.icon_foot),
+
+            LessonItem(15, 1,
+                    "Partes de la casa",
+                    "house_1_introduction.txt",
+                    "house_1_vocabulary.txt",
+                    "house_1_sentences.txt",
+                    R.drawable.icon_house),
     )
 }

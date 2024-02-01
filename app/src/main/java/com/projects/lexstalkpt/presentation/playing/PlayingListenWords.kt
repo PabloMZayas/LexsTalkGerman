@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
@@ -46,17 +45,19 @@ fun PlayingListenWordsScreen(selectionsViewModel: SelectionsViewModel,
         ShowICanTHearNow()
         Spacer(modifier = Modifier.size(15.dp))
         ShowWordsToListenAndRead(selectionsViewModel, Modifier, readTextOutLoud)
-
     }
 }
 
 @Composable
 fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier: Modifier, readTextOutLoud: (String) -> Unit) {
-    val vocabularyList = selectionsViewModel.myVocabularyList.shuffled().take(6)
+    val vocabularyList by rememberSaveable { mutableStateOf(selectionsViewModel.myVocabularyList.shuffled().take(6)) }
     val context = LocalContext.current
 
     val wordsToRead by rememberSaveable { mutableStateOf(vocabularyList.map { it[1] }) }
     val wordsToListen by rememberSaveable { mutableStateOf(vocabularyList.map { it[0] }) }
+
+    val wordsToReadShuffled by rememberSaveable { mutableStateOf(wordsToRead.shuffled()) }
+    val wordsToListenShuffled by rememberSaveable { mutableStateOf(wordsToListen.shuffled()) }
 
     var selectedIndexGerman by rememberSaveable { mutableStateOf(-1) }
     var selectedIndexSpanish by rememberSaveable { mutableStateOf(-1) }
@@ -69,10 +70,17 @@ fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier:
             items(6) { index ->
                 ItemReadWord(
                         modifier = Modifier.weight(1f),
-                        word = wordsToListen[index],
-                        isSelected = selectedIndexGerman == index
-                ) {
+                        word = wordsToListenShuffled[index],
+                        isSelected = selectedIndexGerman == index,
+                        isMatched = false,
+                        ) {
                     selectedIndexGerman = index
+                    wordGermanSelected = it
+                    vocabularyList.forEach { words ->
+                        if (words.contains(wordGermanSelected) && words.contains(wordSpanishSelected)) {
+                            Toast.makeText(context, "ger: $wordGermanSelected sp: $wordSpanishSelected", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                     readTextOutLoud(it)
                 }
             }
@@ -82,10 +90,17 @@ fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier:
             items(6) { index ->
                 ItemReadWord(
                         modifier = Modifier.weight(1f),
-                        word = wordsToRead[index],
-                        isSelected = selectedIndexSpanish == index
+                        word = wordsToReadShuffled[index],
+                        isSelected = selectedIndexSpanish == index,
+                        isMatched = false,
                 ) {
+                    wordSpanishSelected = it
                     selectedIndexSpanish = index
+                    vocabularyList.forEach { words ->
+                        if (words.contains(wordGermanSelected) && words.contains(wordSpanishSelected)) {
+                            Toast.makeText(context, "ger: $wordGermanSelected sp: $wordSpanishSelected", Toast.LENGTH_SHORT).show()
+                        }
+                    }
                 }
             }
         })
@@ -93,16 +108,16 @@ fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier:
 }
 
 @Composable
-fun ItemReadWord(modifier: Modifier, word: String, isSelected: Boolean, onClickListener: (String) -> Unit) {
+fun ItemReadWord(modifier: Modifier, word: String, isSelected: Boolean,  isMatched: Boolean, onClickListener: (String) -> Unit) {
     Card(
             modifier = modifier
                     .fillMaxWidth()
                     .padding(vertical = 15.dp, horizontal = 5.dp)
-                    .clickable {
+                    .clickable(){
                         onClickListener(word)
                     },
             colors = CardDefaults.cardColors(
-                    containerColor = if (isSelected) Color.Red else Color.Cyan
+                    containerColor = if (isSelected) Color.Red else Color.Cyan,
             )
     ) {
         Column(
