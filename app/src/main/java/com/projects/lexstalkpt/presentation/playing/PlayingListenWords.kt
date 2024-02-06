@@ -4,11 +4,9 @@ import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -27,6 +25,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.projects.lexstalkpt.presentation.MySpacer
 import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
@@ -39,25 +38,27 @@ fun PlayingListenWordsScreen(selectionsViewModel: SelectionsViewModel,
         ShowProgress(selectionsViewModel, 6)
         ShowLives(selectionsViewModel)
         ShowTimeAndMoney()
-        Spacer(modifier = Modifier.size(15.dp))
-        TextInstructions(Modifier.align(Alignment.CenterHorizontally), "¿Qué palabra escuchas?")
-        Spacer(modifier = Modifier.size(15.dp))
-        ShowICanTHearNow()
-        Spacer(modifier = Modifier.size(15.dp))
+        MySpacer(15)
+        TextInstructions(Modifier.align(Alignment.CenterHorizontally), "Une las palabras correspondientes")
+        //MySpacer(15)
+        //ShowICanTHearNow()
+        MySpacer(15)
         ShowWordsToListenAndRead(selectionsViewModel, Modifier, readTextOutLoud)
     }
 }
 
 @Composable
-fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier: Modifier, readTextOutLoud: (String) -> Unit) {
+fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel,
+                             modifier: Modifier,
+                             readTextOutLoud: (String) -> Unit) {
     val vocabularyList by rememberSaveable { mutableStateOf(selectionsViewModel.myVocabularyList.shuffled().take(6)) }
     val context = LocalContext.current
 
-    val wordsToRead by rememberSaveable { mutableStateOf(vocabularyList.map { it[1] }) }
-    val wordsToListen by rememberSaveable { mutableStateOf(vocabularyList.map { it[0] }) }
+    val wordsSpanish by rememberSaveable { mutableStateOf(vocabularyList.map { it[1] }) }
+    val wordsToGerman by rememberSaveable { mutableStateOf(vocabularyList.map { it[0] }) }
 
-    val wordsToReadShuffled by rememberSaveable { mutableStateOf(wordsToRead.shuffled()) }
-    val wordsToListenShuffled by rememberSaveable { mutableStateOf(wordsToListen.shuffled()) }
+    val wordsToReadShuffled by rememberSaveable { mutableStateOf(wordsSpanish.shuffled()) }
+    val wordsToListenShuffled by rememberSaveable { mutableStateOf(wordsToGerman.shuffled()) }
 
     var selectedIndexGerman by rememberSaveable { mutableStateOf(-1) }
     var selectedIndexSpanish by rememberSaveable { mutableStateOf(-1) }
@@ -108,12 +109,16 @@ fun ShowWordsToListenAndRead(selectionsViewModel: SelectionsViewModel, modifier:
 }
 
 @Composable
-fun ItemReadWord(modifier: Modifier, word: String, isSelected: Boolean,  isMatched: Boolean, onClickListener: (String) -> Unit) {
+fun ItemReadWord(modifier: Modifier,
+                 word: String,
+                 isSelected: Boolean,
+                 isMatched: Boolean,
+                 onClickListener: (String) -> Unit) {
     Card(
             modifier = modifier
                     .fillMaxWidth()
                     .padding(vertical = 15.dp, horizontal = 5.dp)
-                    .clickable(){
+                    .clickable() {
                         onClickListener(word)
                     },
             colors = CardDefaults.cardColors(

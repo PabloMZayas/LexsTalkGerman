@@ -63,7 +63,7 @@ fun SelectSectionScreen(navController: NavHostController, selectionsViewModel: S
                 .weight(1f),
                 navController,
                 selectionsViewModel)
-        Spacer(modifier = Modifier.size(10.dp))
+        //Spacer(modifier = Modifier.size(10.dp))
         //BottomBar()
     }
 }

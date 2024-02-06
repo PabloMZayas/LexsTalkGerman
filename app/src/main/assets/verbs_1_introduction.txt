@@ -1,0 +1,17 @@
+Los verbos en alemán, al igual que en otros idiomas, son palabras que expresan acciones, estados o eventos. Los verbos en alemán pueden tener diferentes formas y conjugaciones según el tiempo, el modo, la persona y el número. Aquí tienes una introducción básica a los verbos en alemán:
+
+*Infinitivo (Infinitiv):*
+La forma base del verbo, que generalmente termina en "-en", "-eln" o "-ern". Por ejemplo: "sprechen" (hablar), "lesen" (leer), "arbeiten" (trabajar).
+
+*Conjugación (Konjugation):*
+Los verbos alemanes se conjugan para concordar con el sujeto de la oración. La conjugación implica cambios en la terminación del verbo. Las formas conjugadas varían según la persona (ich, du, er/sie/es, wir, ihr, sie).
+
+*Presente (Präsens):*
+Indica una acción que ocurre en el presente. Las conjugaciones varían según la persona. Por ejemplo:
+
+ich spreche (yo hablo)
+du sprichst (tú hablas)
+er/sie/es spricht (él/ella/ello habla)
+wir sprechen (nosotros/as hablamos)
+ihr sprecht (vosotros/as habláis)
+sie sprechen (ellos/as hablan)
