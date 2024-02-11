@@ -45,7 +45,7 @@ class ProvideLessons {
                     "numbers_1_introduction.txt",
                     "numbers_1_vocabulary.txt",
                     "numbers_1_sentences.txt",
-                    R.drawable.icon_numbers_one),*/
+                    R.drawable.icon_numbers_one),
 
             LessonItem(6, 1,
                     "Pronombres personales",
@@ -124,7 +124,7 @@ class ProvideLessons {
                     "house_1_introduction.txt",
                     "kitchen_1_vocabulary.txt",
                     "house_1_sentences.txt",
-                    R.drawable.icon_kitchen),
+                    R.drawable.icon_kitchen),*/
 
             LessonItem(17, 1,
                     "Adverbios comunes",
