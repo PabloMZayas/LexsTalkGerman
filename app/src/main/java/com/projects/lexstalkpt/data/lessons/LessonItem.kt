@@ -8,5 +8,6 @@ data class LessonItem(
         val lessonVocabularyKey: String = "",
         val lessonSentencesKey: String = "",
         val lessonDrawable: Int = 0,
+        val lessonGermanIntroductionKey: String = "",
         var lessonProgress: Int = 0
 )

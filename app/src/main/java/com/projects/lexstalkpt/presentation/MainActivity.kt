@@ -33,12 +33,15 @@ import java.util.UUID
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private lateinit var ttsForPlaying: TextToSpeech
+    private lateinit var ttsGerman: TextToSpeech
+    private lateinit var ttsSpanish: TextToSpeech
+
     private val selectionsViewModel: SelectionsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initTtsForPlaying()
+        initTtsGerman()
+        initTtsSpanish()
         setContent {
             LexsTalkPtTheme {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
@@ -54,13 +57,13 @@ class MainActivity : ComponentActivity() {
                             SelectModeGameScreen(navController, selectionsViewModel)
                         }
                         composable(Routes.LessonVocabularyScreen.route) {
-                            LessonVocabularyScreen(navController, selectionsViewModel) { readTextOutLoud(it) }
+                            LessonVocabularyScreen(navController, selectionsViewModel) { readTextOutLoudGerman(it) }
                         }
                         composable(Routes.LessonIntroductionScreen.route) {
-                            LessonIntroductionScreen(navController, selectionsViewModel)
+                            LessonIntroductionScreen(navController, selectionsViewModel, { readTextOutLoudGerman(it) }, { readTextOutLoudSpanish(it) })
                         }
                         composable(Routes.PlayingCardsScreen.route) {
-                            PlayingCardsScreen(navController, selectionsViewModel) { readTextOutLoud (it) }
+                            PlayingCardsScreen(navController, selectionsViewModel) { readTextOutLoudGerman (it) }
                         }
                         composable(Routes.PlayingTypeWord.route) {
                             PlayingTypeWord(navController, selectionsViewModel)
@@ -69,7 +72,7 @@ class MainActivity : ComponentActivity() {
                             PlayingScreenMemory(selectionsViewModel, navController)
                         }
                         composable(Routes.PlayingListenWordsScreen.route) {
-                            PlayingListenWordsScreen(selectionsViewModel, navController) { readTextOutLoud(it)}
+                            PlayingListenWordsScreen(selectionsViewModel, navController) { readTextOutLoudGerman(it)}
                         }
                         composable(Routes.WinnerScreen.route) {
                             initMediaPlayer(R.raw.winner, LocalContext.current)
@@ -84,14 +87,26 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun readTextOutLoud(it: String) {
-        ttsForPlaying.speak(it, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
+    private fun readTextOutLoudGerman(it: String) {
+        ttsGerman.speak(it, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
     }
 
-    private fun initTtsForPlaying() {
-        ttsForPlaying = TextToSpeech(this) { status ->
+    private fun initTtsGerman() {
+        ttsGerman = TextToSpeech(this) { status ->
             if (status == TextToSpeech.SUCCESS) {
-                ttsForPlaying.language = Locale.GERMAN
+                ttsGerman.language = Locale.GERMAN
+            }
+        }
+    }
+
+    private fun readTextOutLoudSpanish(it: String) {
+        ttsSpanish.speak(it, TextToSpeech.QUEUE_FLUSH, null, UUID.randomUUID().toString())
+    }
+
+    private fun initTtsSpanish() {
+        ttsSpanish = TextToSpeech(this) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                ttsSpanish.language = Locale("es", "MX")
             }
         }
     }

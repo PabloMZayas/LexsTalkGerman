@@ -23,6 +23,9 @@ class SelectionsViewModel @Inject constructor(
     var myIntroduction by mutableStateOf(listOf<String>())
         private set
 
+    var myGermanIntroduction by mutableStateOf(listOf<String>())
+        private set
+
     var showHitDialog by mutableStateOf(false)
         private set
 
@@ -54,7 +57,9 @@ class SelectionsViewModel @Inject constructor(
 
     fun setIntroduction() {
         val key = _lessonItemSelected.value!!.lessonIntroductionKey
+        val germanKey = _lessonItemSelected.value!!.lessonGermanIntroductionKey
         myIntroduction = provideIntroductionsLessonsUseCase.provideIntroductionFromTxt(key)
+        myGermanIntroduction = provideIntroductionsLessonsUseCase.provideGermanIntroductionFromTxt(germanKey)
     }
 
     fun increaseRightHits() { rightHits += 1 }

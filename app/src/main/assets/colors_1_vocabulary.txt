@@ -1,3 +1,6 @@
+die Farbe - el color
+die Farben - Los colores
+durchsichtig - Transparente
 Rot - Rojo
 Blau - Azul
 Grün - Verde - Grun

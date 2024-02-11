@@ -45,8 +45,8 @@ fun PlayingListenWordsScreen(selectionsViewModel: SelectionsViewModel,
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ShowWords(selectionsViewModel: SelectionsViewModel,
-                             modifier: Modifier,
-                             readTextOutLoud: (String) -> Unit) {
+              modifier: Modifier,
+              readTextOutLoud: (String) -> Unit) {
     val vocabularyList by rememberSaveable { mutableStateOf(selectionsViewModel.myVocabularyList.shuffled().take(6)) }
     val listItemCardsGerman = getGermanCardsForGame(vocabularyList)
     val listItemCardsSpanish = getSpanishCardsForGame(vocabularyList)
@@ -80,9 +80,9 @@ fun NewCardItem(cardItem: CardItem, modifier: Modifier, readTextOutLoud: (String
                 cardItem.onFoundChange(!cardItem.isFound)
                 if (isGerman) readTextOutLoud(cardItem.word)
             }, colors = CardDefaults.cardColors(
-                    containerColor = if (cardItem.isFound) Color.Green else if (cardItem.isSelected) Color.LightGray else Color.Cyan
-            )
-            ) {
+            containerColor = if (cardItem.isFound) Color.Green else if (cardItem.isSelected) Color.LightGray else Color.Cyan
+    )
+    ) {
         Column(
                 Modifier.padding(horizontal = 8.dp, vertical = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -117,7 +117,7 @@ fun getSpanishCardsForGame(vocabularyList: List<List<String>>): List<CardItem> {
                 isSelected = isSelected,
                 isFound = isFound,
                 onSelectedChange = { isSelected = it },
-                onFoundChange = { isFound = it}
+                onFoundChange = { isFound = it }
         )
     }
 }

@@ -11,7 +11,8 @@ class ProvideLessons {
                     "introductory_vocabulary_introduction.txt",
                     "introductory_vocabulary_vocabulary.txt",
                     "introductory_vocabulary_sentences.txt",
-                    R.drawable.icon_color_chicken),
+                    R.drawable.icon_color_chicken,
+                    "introductory_vocabulary_german_introduction.txt"),
 
             LessonItem(
                     2, 1,
@@ -19,7 +20,8 @@ class ProvideLessons {
                     "animals_1_introduction.txt",
                     "animals_1_vocabulary.txt",
                     "animals_1_sentences.txt",
-                    R.drawable.icon_elephant),
+                    R.drawable.icon_elephant,
+                    "animals_1_introduction_german.txt"),
 
             LessonItem(
                     3, 1,
@@ -27,14 +29,16 @@ class ProvideLessons {
                     "fruits_1_introduction.txt",
                     "fruits_1_vocabulary.txt",
                     "fruits_1_sentences.txt",
-                    R.drawable.icon_apple),
+                    R.drawable.icon_apple,
+                    "fruits_1_introduction_german.txt"),
 
             LessonItem(4, 1,
                     "Colores - primera parte",
                     "colors_1_introduction.txt",
                     "colors_1_vocabulary.txt",
                     "colors_1_sentences.txt",
-                    R.drawable.icon_colors),
+                    R.drawable.icon_colors,
+                    "colors_1_introduction_german.txt",),
 
             LessonItem(5, 1,
                     "Números - primera parte",
