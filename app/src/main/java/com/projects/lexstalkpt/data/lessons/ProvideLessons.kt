@@ -5,7 +5,7 @@ import com.projects.lexstalkpt.R
 class ProvideLessons {
 
     fun provideBeginnerLectureItems(): MutableList<LessonItem> = mutableListOf(
-            LessonItem(
+           /* LessonItem(
                     1, 1,
                     "Vocabulario introductorio",
                     "introductory_vocabulary_introduction.txt",
@@ -45,7 +45,7 @@ class ProvideLessons {
                     "numbers_1_introduction.txt",
                     "numbers_1_vocabulary.txt",
                     "numbers_1_sentences.txt",
-                    R.drawable.icon_numbers_one),
+                    R.drawable.icon_numbers_one),*/
 
             LessonItem(6, 1,
                     "Pronombres personales",
@@ -102,7 +102,8 @@ class ProvideLessons {
                     "present_1_introduction.txt",
                     "present_1_vocabulary.txt",
                     "present_1_sentences.txt",
-                    R.drawable.icon_present),
+                    R.drawable.icon_present,
+                    "present_1_introduction_german.txt"),
 
             LessonItem(14, 1,
                     "Partes del cuerpo - primera parte",
