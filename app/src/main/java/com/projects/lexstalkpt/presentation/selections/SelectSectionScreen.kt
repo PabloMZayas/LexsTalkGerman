@@ -22,9 +22,11 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -111,7 +113,9 @@ fun LessonItem(lessonItem: LessonItem, index: Int, navController: NavHostControl
     Card(Modifier.clickable {
         navController.navigate(Routes.SelectModeGameScreen.route)
         selectionsViewModel.setSectionSelected(lessonItem)
-    }) {
+    }, colors = CardDefaults.cardColors(
+            containerColor = Color.LightGray
+    )) {
         Row(Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 10.dp, vertical = 15.dp),
@@ -147,12 +151,14 @@ fun MyHeader() {
                         .size(40.dp)
                         .padding(5.dp),
                 contentDescription = "flag_german")
-        MySpinnerSelectLevel(Modifier.weight(1f))
-        Icon(painterResource(id = R.drawable.manage_account),
-                modifier = Modifier
-                        .size(40.dp)
-                        .padding(5.dp),
-                contentDescription = "flag_german")
+        //MySpinnerSelectLevel(Modifier.weight(1f))
+        IconButton(onClick = { /*TODO*/ }) {
+            Icon(painterResource(id = R.drawable.manage_account),
+                    modifier = Modifier
+                            .size(40.dp)
+                            .padding(5.dp),
+                    contentDescription = "flag_german")
+        }
     }
 }
 

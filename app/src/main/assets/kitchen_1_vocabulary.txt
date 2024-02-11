@@ -1,0 +1,17 @@
+die Löffel - la cuchara
+die Gabel - el tenedor
+der Tisch - la mesa
+der Stuhl - la silla
+die Tasse - la taza
+der Kühlschrank - el refrigerador
+der Herd - la estucha
+die Pfanne - el sartén
+der Topf - la olla
+die Mikrowelle - el microondas
+das Glas - el vaso
+die Zutat - el ingrediente
+die Serviette - la servilleta
+die Küche - la cocina
+der Teller - el plato
+die Tischdecke - el mantel
+die Mixer - la licuadora

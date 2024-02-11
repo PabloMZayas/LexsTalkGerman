@@ -113,5 +113,19 @@ class ProvideLessons {
                     "house_1_vocabulary.txt",
                     "house_1_sentences.txt",
                     R.drawable.icon_house),
+
+            LessonItem(16, 1,
+                    "Partes de la cocina",
+                    "house_1_introduction.txt",
+                    "kitchen_1_vocabulary.txt",
+                    "house_1_sentences.txt",
+                    R.drawable.icon_kitchen),
+
+            LessonItem(17, 1,
+                    "Adverbios comunes",
+                    "adverbs_1_introduction.txt",
+                    "adverbs_1_vocabulary.txt",
+                    "adverbs_1_sentences.txt",
+                    R.drawable.icon_adverbs),
     )
 }
