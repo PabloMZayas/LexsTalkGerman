@@ -46,7 +46,7 @@ fun PlayingCardsScreen(navController: NavHostController,
     val myOptions by rememberSaveable { mutableStateOf(listOf(shuffledList[0], shuffledList[1], shuffledList[2], shuffledList[3]).shuffled()) }
     val rightAnswer by rememberSaveable { mutableStateOf(shuffledList[0][1]) }
     var userAnswer by rememberSaveable { mutableStateOf("") }
-    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, navController)
+    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, 4)
 
     Column(Modifier
             .fillMaxSize()
@@ -72,9 +72,9 @@ fun PlayingCardsScreen(navController: NavHostController,
 }
 
 @Composable
-fun ObserveIfDialogsAreShowing(selectionsViewModel: SelectionsViewModel, navController: NavHostController, rightAnswer: List<String>, userAnswer: String, navController1: NavHostController) {
+fun ObserveIfDialogsAreShowing(selectionsViewModel: SelectionsViewModel, navController: NavHostController, rightAnswer: List<String>, userAnswer: String, gameMode: Int = 0) {
     if (selectionsViewModel.showHitDialog) {
-        DialogHit(show = true, selectionsViewModel = selectionsViewModel, navController, 4)
+        DialogHit(show = true, selectionsViewModel = selectionsViewModel, navController, gameMode)
     }
 
     if (selectionsViewModel.showErrorDialog) {

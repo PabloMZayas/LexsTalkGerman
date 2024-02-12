@@ -9,6 +9,7 @@ sealed class Routes (val route: String) {
     object PlayingTypeWord: Routes("playing_type_word")
     object PlayingMemoryScreen: Routes("playing_memory_screen")
     object PlayingListenWordsScreen: Routes("playing_listen_words_screen")
+    object PlayingGrammaticalCasesScreen: Routes("playing_grammatical_cases_screen")
 
     object WinnerScreen: Routes("winner_screen")
     object LoserScreen: Routes("loser_screen")

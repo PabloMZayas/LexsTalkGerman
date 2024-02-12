@@ -1,0 +1,24 @@
+Der Hund bellt. - El perro ladra. - nominativo - el perro
+Die Sonne scheint. - El sol brilla. - nominativo - el sol
+Das Kind spielt im Park. - El niño juega en el parque. - nominativo - el niño
+Die Blumen blühen im Garten. - Las flores florecen en el jardín. - nominativo - las flores
+Mein Freund kommt aus Deutschland. - Mi amigo viene de Alemania. - nominativo - Mi amigo
+Die Katze liegt auf dem Sofa. - El gato está acostado en el sofá. - nominativo - el gato
+Ich esse einen Apfel. - Estoy comiendo una manzana. - acusativo - la manzana
+Sie liest ein Buch. - Ella está leyendo un libro. - acusativo - el libro
+Wir kaufen einen neuen Fernseher. - Estamos comprando un nuevo televisor. - acusativo - el nuevo televisor
+Er trinkt einen Kaffee. - Él está tomando un café. - acusativo - el café
+Die Kinder spielen einen Film nach. - Los niños están recreando una película. - acusativo - la película
+Ich höre die Musik. - Estoy escuchando la música. - acusativo - la música
+Ich gebe dem Kind einen Ball. - Le doy una pelota al niño. - dativo - el niño
+Sie hilft der alten Frau. - Ella está ayudando a la anciana. - dativo - la anciana
+Er schenkt seiner Freundin Blumen. - Él le regala flores a su novia. - dativo - la novia
+Wir danken dem Lehrer für die Hilfe. - Le agradecemos al profesor por la ayuda. - dativo - el profesor
+Ich antworte dem Arzt auf die Frage. - Respondo al médico a la pregunta. - dativo - el médico
+Der Mann gibt dem Hund Wasser. - El hombre le da agua al perro. - dativo - el perro
+Das Auto meines Vaters ist rot. - El coche de mi padre es rojo. - genitivo - el padre
+Die Farbe des Himmels ist blau. - El color del cielo es azul. - genitivo - el cielo
+Der Schlüssel des Hauses liegt auf dem Tisch. - La llave de la casa está sobre la mesa. - genitivo - la casa
+Die Geschichte der Stadt ist interessant. - La historia de la ciudad es interesante. - genitivo - la ciudad
+Das Zimmer des Kindes ist sehr ordentlich. - La habitación del niño está muy ordenada. - genitivo - el niño
+Die Wohnung meines Bruders ist groß. - El apartamento de mi hermano es grande. - genitivo - el hermano

@@ -28,6 +28,7 @@ import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.MySpacer
 import com.projects.lexstalkpt.presentation.navigateToCards
+import com.projects.lexstalkpt.presentation.navigateToGrammaticalCases
 import com.projects.lexstalkpt.presentation.navigateToIntroduction
 import com.projects.lexstalkpt.presentation.navigateToMemoryGame
 import com.projects.lexstalkpt.presentation.navigateToTypeWord
@@ -110,6 +111,10 @@ fun navigateToNextQuestion(navController: NavHostController, modeGame: Int) {
 
         7 -> {
             navigateToTypeWord(navController)
+        }
+
+        8 -> {
+            navigateToGrammaticalCases(navController)
         }
     }
 }

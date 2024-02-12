@@ -29,6 +29,7 @@ import com.projects.lexstalkpt.R
 import com.projects.lexstalkpt.presentation.MySimpleImage
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.navigateToCards
+import com.projects.lexstalkpt.presentation.navigateToGrammaticalCases
 import com.projects.lexstalkpt.presentation.navigateToIntroduction
 import com.projects.lexstalkpt.presentation.navigateToListenWords
 import com.projects.lexstalkpt.presentation.navigateToMemoryGame
@@ -66,6 +67,7 @@ fun ObserveModeSelected(selectionsViewModel: SelectionsViewModel,
         4 -> navigateToListenWords(navController)
         5 -> navigateToMemoryGame(navController)
         7 -> navigateToTypeWord(navController)
+        8 -> navigateToGrammaticalCases(navController)
     }
     selectionsViewModel.setSelectedMode(0)
 }
@@ -188,7 +190,7 @@ fun WritingTraduceButtons(modifier: Modifier, selectionsViewModel: SelectionsVie
                         .weight(1f)
                         .padding(end = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 7)
-        OptionModeButton(text = "Traducción",
+        OptionModeButton(text = "Casos gramaticales",
                 modifier = modifier
                         .weight(1f)
                         .padding(start = 10.dp),

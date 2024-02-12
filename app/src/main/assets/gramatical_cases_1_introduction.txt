@@ -1,0 +1,28 @@
+Los casos gramaticales son una característica fundamental de muchas lenguas, incluyendo el alemán, el latín, el ruso, entre otros. Los casos gramaticales son formas específicas en las que se declinan los sustantivos, adjetivos, pronombres y otros elementos de la oración para indicar su función sintáctica en relación con otras palabras en la oración.
+
+En el caso del alemán, hay cuatro casos gramaticales principales: nominativo, acusativo, dativo y genitivo. Cada caso tiene una función sintáctica específica y se utiliza en diferentes situaciones. Aquí hay una breve descripción de cada caso y cómo se usan:
+
+Nominativo: Este caso se usa principalmente para identificar el sujeto de una oración, es decir, la persona o cosa que realiza la acción del verbo. También se utiliza con los predicados nominales y los complementos directos después de los verbos de estado. Ejemplo:
+
+"Der Hund bellt." (El perro ladra.) - "Der Hund" es el sujeto en nominativo.
+Acusativo: Se utiliza para indicar el objeto directo de una acción, es decir, la persona o cosa que recibe la acción del verbo directamente. También se emplea después de ciertas preposiciones que exigen el acusativo. Ejemplo:
+
+"Ich sehe einen Film." (Veo una película.) - "einen Film" es el objeto directo en acusativo.
+Dativo: Indica el objeto indirecto de una acción, es decir, la persona o cosa a la que se dirige o beneficia la acción del verbo. También se utiliza después de ciertas preposiciones que exigen el dativo. Ejemplo:
+
+"Ich gebe dem Kind einen Ball." (Doy una pelota al niño.) - "dem Kind" es el objeto indirecto en dativo.
+Genitivo: Este caso indica posesión o relación y se utiliza para expresar a quién pertenece algo o la relación entre dos sustantivos. También se emplea para expresar origen, contenido, autoría y otras relaciones similares. Ejemplo:
+
+"Das Buch des Lehrers." (El libro del profesor.) - "des Lehrers" indica la posesión en genitivo.
+Entender los casos gramaticales es fundamental para la comprensión y la producción de oraciones correctas en alemán. Cada caso tiene reglas específicas de uso y declinación, y dominarlos es esencial para la fluidez en el idioma.
+
+La comprensión de los casos gramaticales puede ser bastante desafiante en el inicio, así que trataremos de avanzar de manera paciente.
+
+Considera las siguientes oraciones para ayudarte a diferenciar los casos *acusativo* y *dativo*:
+
+"Sie hilft der alten Frau." - "Ella está ayudando a la anciana." - dativo -
+"Sie besucht die alte Frau." - "Ella visita a la anciana." - acusativo
+
+Objeto indirecto (dativo): Indica la persona o cosa a la que se dirige o beneficia la acción del verbo de manera indirecta. Responde a la pregunta "a quién" o "para quién". En la primera oración, "Sie hilft der alten Frau", la anciana recibe la ayuda de manera indirecta, por lo tanto, es objeto indirecto y se marca en dativo.
+
+Objeto directo (acusativo): Indica la persona o cosa que recibe directamente la acción del verbo. Responde a la pregunta "qué" o "a quién". En la segunda oración, "Sie besucht die alte Frau", la anciana es la persona que está siendo visitada directamente, por lo tanto, es objeto directo y se marca en acusativo.

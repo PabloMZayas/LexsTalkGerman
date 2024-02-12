@@ -25,7 +25,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.projects.lexstalkpt.R
-import com.projects.lexstalkpt.presentation.InitMediaPlayerBackground
 import com.projects.lexstalkpt.presentation.Routes
 import com.projects.lexstalkpt.presentation.initMediaPlayer
 import com.projects.lexstalkpt.presentation.navigateToWinnerDialog
@@ -43,7 +42,7 @@ fun PlayingTypeWord(navController: NavHostController,
     val shuffledList by remember { mutableStateOf(myListVocabulary.shuffled()) }
     val rightAnswers by remember { mutableStateOf(shuffledList[0]) }
     var userAnswer by remember { mutableStateOf("") }
-    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, navController)
+    ObserveIfDialogsAreShowing(selectionsViewModel, navController, shuffledList[0], userAnswer, 7)
 
     Column(Modifier
             .fillMaxSize()

@@ -132,5 +132,13 @@ class ProvideLessons {
                     "adverbs_1_vocabulary.txt",
                     "adverbs_1_sentences.txt",
                     R.drawable.icon_adverbs),
+
+            LessonItem(18, 1,
+                    "Casos gramaticales",
+                    "gramatical_cases_1_introduction.txt",
+                    "gramatical_cases_1_vocabulary.txt",
+                    "adverbs_1_sentences.txt",
+                    R.drawable.icon_grammatical_cases,
+                    "gramatical_cases_1_introduction_german.txt"),
     )
 }

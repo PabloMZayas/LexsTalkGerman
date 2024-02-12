@@ -92,6 +92,10 @@ fun navigateToListenWords(navController: NavHostController) {
     navController.navigate(Routes.PlayingListenWordsScreen.route) { popUpTo(Routes.PlayingListenWordsScreen.route) { inclusive = true } }
 }
 
+fun navigateToGrammaticalCases(navController: NavHostController) {
+    navController.navigate(Routes.PlayingGrammaticalCasesScreen.route) { popUpTo(Routes.PlayingGrammaticalCasesScreen.route) { inclusive = true } }
+}
+
 fun navigateToWinnerDialog(navController: NavHostController) {
     navController.navigate(Routes.WinnerScreen.route) { popUpTo(Routes.WinnerScreen.route) { inclusive = true } }
 }
