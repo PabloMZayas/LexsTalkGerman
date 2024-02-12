@@ -72,6 +72,7 @@ fun LessonIntroductionScreen(navController: NavController,
 fun IconChangeToGerman(onChangeLanguage: () -> Unit, onListenLesson: () -> Unit, isListening: Boolean) {
     Row(modifier = Modifier
             .padding(horizontal = 10.dp), horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically) {
+        MySpacer(55)
         MySimpleImage(drawable = R.drawable.icon_flag_germany, size = 30)
         MySpacer(15)
         Text(modifier = Modifier.clickable {
