@@ -123,7 +123,7 @@ fun ShowLesson(selectionsViewModel: SelectionsViewModel, isGerman: Boolean, isLi
 }
 
 @Composable
-fun TextBoldAsterisks(tuString: String, fontSize: Int = 0) {
+fun TextBoldAsterisks(tuString: String, fontSize: Int = 0, isJustified: Boolean = true) {
     val annotatedString = buildAnnotatedString {
         val boldChar = '*'
 
@@ -151,7 +151,7 @@ fun TextBoldAsterisks(tuString: String, fontSize: Int = 0) {
 
     Text(
             text = annotatedString,
-            textAlign = TextAlign.Justify,
+            textAlign = if (isJustified) TextAlign.Justify else TextAlign.Center,
             fontSize = 18.sp,
             fontFamily = FontFamily(Font(R.font.type_wr))
     )

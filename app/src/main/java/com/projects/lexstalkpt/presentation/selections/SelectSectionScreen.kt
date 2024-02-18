@@ -114,7 +114,7 @@ fun LessonItem(lessonItem: LessonItem, index: Int, navController: NavHostControl
         navController.navigate(Routes.SelectModeGameScreen.route)
         selectionsViewModel.setSectionSelected(lessonItem)
     }, colors = CardDefaults.cardColors(
-            containerColor = Color.LightGray
+            containerColor = Color.Cyan
     )) {
         Row(Modifier
                 .fillMaxWidth()
