@@ -1,0 +1,35 @@
+Los pronombres posesivos en alemán funcionan de manera similar a los pronombres posesivos en otros idiomas, pero es importante entender cómo se adaptan al género, número y caso gramatical del sustantivo al que modifican, especialmente en el caso nominativo.
+
+En el caso nominativo, los pronombres posesivos se utilizan cuando el sustantivo al que se refieren es el sujeto de la oración. Aquí tienes una explicación detallada del funcionamiento de los pronombres posesivos en alemán en el caso nominativo:
+
+*1. Género y número:*
+
+Los pronombres posesivos en alemán deben concordar en género y número con el sustantivo al que modifican. Esto significa que cambiarán dependiendo de si el sustantivo es masculino, femenino, neutro o plural.
+Por ejemplo:
+"Mein Buch" (mi libro) utiliza "mein" porque "Buch" (libro) es un sustantivo neutro en singular.
+"Unser Hund" (nuestro perro) utiliza "unser" porque "Hund" (perro) es un sustantivo masculino en singular.
+
+*2. Concordancia con el sujeto:*
+
+En el caso nominativo, los pronombres posesivos deben concordar con el sujeto de la oración en género y número.
+Por ejemplo:
+Si el sujeto es "Ich" (yo), usarías "mein" para indicar posesión: "Mein Buch ist interessant" (Mi libro es interesante).
+Si el sujeto es "Wir" (nosotros), usarías "unser" para indicar posesión: "Unser Hund ist freundlich" (Nuestro perro es amigable).
+
+*3. Ejemplos:*
+
+Singular masculino: Mein (mi), Dein (tu), Sein (su, de él), Ihr (su, de ella)
+Ejemplo: "Mein Vater ist Arzt" (Mi padre es médico).
+
+Singular femenino: Mein (mi), Dein (tu), Ihr (su, de ella)
+Ejemplo: "Ihr Buch ist interessant" (Su libro es interesante).
+
+Singular neutro: Mein (mi), Dein (tu), Sein (su, de él), Ihr (su, de ella)
+Ejemplo: "Unser Haus ist groß" (Nuestra casa es grande).
+
+Plural: Unser (nuestro), Euer (vuestro), Ihr (su, de ellos/ellas), Ihr (su, de ustedes)
+Ejemplo: "Ihre Kinder sind nett" (Sus hijos son amables).
+
+*Resumen*
+
+En resumen, en el caso nominativo, los pronombres posesivos en alemán se utilizan para indicar posesión o pertenencia cuando el sustantivo al que se refieren es el sujeto de la oración. Es crucial que concuerden en género y número con el sustantivo al que modifican y con el sujeto de la oración.

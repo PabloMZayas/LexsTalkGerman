@@ -152,7 +152,7 @@ fun TextBoldAsterisks(tuString: String, fontSize: Int = 0, isJustified: Boolean 
     Text(
             text = annotatedString,
             textAlign = if (isJustified) TextAlign.Justify else TextAlign.Center,
-            fontSize = 18.sp,
+            fontSize = 20.sp,
             fontFamily = FontFamily(Font(R.font.type_wr))
     )
 }

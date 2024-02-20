@@ -133,12 +133,26 @@ class ProvideLessons {
                     "adverbs_1_sentences.txt",
                     R.drawable.icon_adverbs),
 
-            LessonItem(18, 1,
+            LessonItem(18, 2,
                     "Casos gramaticales",
                     "gramatical_cases_1_introduction.txt",
                     "gramatical_cases_1_vocabulary.txt",
                     "adverbs_1_sentences.txt",
                     R.drawable.icon_grammatical_cases,
                     "gramatical_cases_1_introduction_german.txt"),
+
+            LessonItem(19, 1,
+                    "Números - Tercera parte",
+                    "numbers_3_introduction.txt",
+                    "numbers_3_vocabulary.txt",
+                    "numbers_3_sentences.txt",
+                    R.drawable.icon_eighties),
+
+            LessonItem(20, 1,
+                    "Pronombre personales - caso nominativo",
+                    "personal_pronouns_possessive_nominative_introduction.txt",
+                    "numbers_3_vocabulary.txt",
+                    "numbers_3_sentences.txt",
+                    R.drawable.icon_personal_pronouns_possesive),
     )
 }

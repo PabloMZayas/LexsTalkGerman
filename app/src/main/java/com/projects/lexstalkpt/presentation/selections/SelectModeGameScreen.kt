@@ -19,6 +19,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -126,7 +127,7 @@ fun getIconButton(modeGame: Int): Int {
 @Composable
 fun OptionModeButton(text: String, modifier: Modifier, selectionsViewModel: SelectionsViewModel, modeGame: Int) {
     val iconButton = getIconButton(modeGame)
-    Button(modifier = modifier.padding(vertical = 4.dp), shape = RoundedCornerShape(4.dp),
+    Button(modifier = modifier.padding(vertical = 4.dp), shape = RoundedCornerShape(8.dp),
             onClick = { selectionsViewModel.setSelectedMode(modeGame) },
             colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Cyan,
@@ -190,10 +191,12 @@ fun WritingTraduceButtons(modifier: Modifier, selectionsViewModel: SelectionsVie
                         .weight(1f)
                         .padding(end = 10.dp),
                 selectionsViewModel = selectionsViewModel, modeGame = 7)
-        OptionModeButton(text = "Casos gramaticales",
-                modifier = modifier
-                        .weight(1f)
-                        .padding(start = 10.dp),
-                selectionsViewModel = selectionsViewModel, modeGame = 8)
+        if (selectionsViewModel.lessonItemSelected.value!!.lessonCategory == 2) {
+            OptionModeButton(text = "Casos",
+                    modifier = modifier
+                            .weight(1f)
+                            .padding(start = 10.dp),
+                    selectionsViewModel = selectionsViewModel, modeGame = 8)
+        }
     }
 }

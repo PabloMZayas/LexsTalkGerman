@@ -8,3 +8,4 @@ Sieben - Siete
 Acht - Ocho
 Neun - Nueve
 Zehn - Diez
+Zahl - Número - Nummer

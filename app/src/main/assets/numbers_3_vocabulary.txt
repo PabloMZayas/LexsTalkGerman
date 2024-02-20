@@ -1,0 +1,24 @@
+Zwanzig - Veinte
+Dreißig - Treinta
+Vierzig - Cuarenta
+Fünfzig - Cincuenta
+Sechzig - Sesenta
+Siebzig - Setenta
+Achtzig - Ochenta
+Neunzig - Noventa
+Hundert - Cien
+Vierunddreißig - Treinta y cuatro
+Einundfünfzig - Cincuenta y uno
+Achtundsiebzig - Setenta y ocho
+Siebenundachtzig - Ochenta y siete
+Vierundneunzig - Noventa y cuatro
+Einundzwanzig - Veintiuno
+Zweihundert - Doscientos
+Dreihundert - Trescientos
+Vierhundert - Cuatroscientos
+Fünfhundert - Quinientos
+Sechshundert - Seiscientos
+Siebenhundert - Setescientos
+Achthundert - Ochocientos
+Neunhundert - Novecientos
+Tausend - Mil
