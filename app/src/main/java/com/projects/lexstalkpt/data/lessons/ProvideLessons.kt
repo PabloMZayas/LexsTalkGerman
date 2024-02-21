@@ -149,10 +149,17 @@ class ProvideLessons {
                     R.drawable.icon_eighties),
 
             LessonItem(20, 1,
+                    "Familia - primera parte",
+                    "family_1_introduction.txt",
+                    "family_1_vocabulary.txt",
+                    "family_1_sentences.txt",
+                    R.drawable.icon_family),
+
+            LessonItem(21, 2,
                     "Pronombre personales - caso nominativo",
                     "personal_pronouns_possessive_nominative_introduction.txt",
-                    "numbers_3_vocabulary.txt",
-                    "numbers_3_sentences.txt",
+                    "personal_pronouns_possessive_nominative_vocabulary.txt",
+                    "personal_pronouns_possessive_nominative_sentences.txt",
                     R.drawable.icon_personal_pronouns_possesive),
     )
 }
