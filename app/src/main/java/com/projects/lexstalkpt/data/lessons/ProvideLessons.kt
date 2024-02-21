@@ -134,7 +134,14 @@ class ProvideLessons {
                     "adverbs_1_sentences.txt",
                     R.drawable.icon_adverbs),
 
-            LessonItem(18, 2,
+            LessonItem(18, 1,
+                    "Palabras comunes - primera parte",
+                    "common_words_1_introduction.txt",
+                    "common_words_1_vocabulary.txt",
+                    "common_words_1_sentences.txt",
+                    R.drawable.icon_notepad_2),
+
+            LessonItem(19, 2,
                     "Casos gramaticales",
                     "gramatical_cases_1_introduction.txt",
                     "gramatical_cases_1_vocabulary.txt",
@@ -142,26 +149,34 @@ class ProvideLessons {
                     R.drawable.icon_grammatical_cases,
                     "gramatical_cases_1_introduction_german.txt"),
 
-            LessonItem(19, 1,
+            LessonItem(20, 1,
                     "Números - Tercera parte",
                     "numbers_3_introduction.txt",
                     "numbers_3_vocabulary.txt",
                     "numbers_3_sentences.txt",
                     R.drawable.icon_eighties),
 
-            LessonItem(20, 1,
+            LessonItem(21, 1,
                     "Familia - primera parte",
                     "family_1_introduction.txt",
                     "family_1_vocabulary.txt",
                     "family_1_sentences.txt",
                     R.drawable.icon_family),
 
-            LessonItem(21, 2,
+            LessonItem(22, 2,
                     "Pronombre personales - caso nominativo",
                     "personal_pronouns_possessive_nominative_introduction.txt",
                     "personal_pronouns_possessive_nominative_vocabulary.txt",
                     "personal_pronouns_possessive_nominative_sentences.txt",
                     R.drawable.icon_personal_pronouns_possesive,
                     "personal_pronouns_possessive_nominative_introduction_german.txt"),
+
+            LessonItem(23, 2,
+                    "Palabras comunes - segunda parte",
+                    "common_words_2_introduction.txt",
+                    "common_words_2_vocabulary.txt",
+                    "common_words_2_sentences.txt",
+                    R.drawable.icon_notepad,
+                    "common_words_2_introduction_german.txt"),
     )
 }

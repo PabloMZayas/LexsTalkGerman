@@ -1,0 +1,20 @@
+die Arbeit - el trabajo
+die Zeitung - el periódico
+das Buch - el libro
+der Tisch - la mesa
+der Stuhl - la silla
+das Zimmer - la habitación
+die Tür - la puerta
+das Fenster - la ventana
+die Hand - la mano
+der Kopf - la cabeza
+das Herz - el corazón
+die Straße - la calle
+das Essen - la comida
+das Brot - el pan
+die Frage - la pregunta
+die Antwort - la respuesta
+die Farbe - el color
+die Natur - la naturaleza
+die Zeit - el tiempo (tiempo cronológico)
+die Woche - la semana
