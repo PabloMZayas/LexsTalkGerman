@@ -1,7 +1,8 @@
 Ich - Yo
 Du - Tú - ustedes - usted
 Er - Él
-Sie - Ella
+Sie - Ella/Ellos/Uds(formal)/Ud(formal)
 Es - Eso
 Wir - Nosotros
-Sie - Ellos
+Ihr - Vosotros (uds informal)
+Sie - Ellos / Ellas / Ustedes (formal)

@@ -49,10 +49,11 @@ class ProvideLessons {
 
             LessonItem(6, 1,
                     "Pronombres personales",
-                    "lecture_5_personal_pronouns_2_introduction.txt",
+                    "personal_pronouns_1_introduction.txt",
                     "personal_pronouns_1_vocabulary.txt",
-                    "personal_pronouns_sentences.txt",
-                    R.drawable.icon_group),
+                    "personal_pronouns_1_sentences.txt",
+                    R.drawable.icon_group,
+                    "personal_pronouns_1_introduction_german.txt"),
 
             LessonItem(7, 1,
                     "Saludos y despedidas",
@@ -160,6 +161,7 @@ class ProvideLessons {
                     "personal_pronouns_possessive_nominative_introduction.txt",
                     "personal_pronouns_possessive_nominative_vocabulary.txt",
                     "personal_pronouns_possessive_nominative_sentences.txt",
-                    R.drawable.icon_personal_pronouns_possesive),
+                    R.drawable.icon_personal_pronouns_possesive,
+                    "personal_pronouns_possessive_nominative_introduction_german.txt"),
     )
 }

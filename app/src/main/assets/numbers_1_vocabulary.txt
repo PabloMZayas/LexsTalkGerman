@@ -1,3 +1,4 @@
+Null - cero
 Eins - Uno
 Zwei - Dos
 Drei - Tres
