@@ -178,5 +178,21 @@ class ProvideLessons {
                     "common_words_2_sentences.txt",
                     R.drawable.icon_notepad,
                     "common_words_2_introduction_german.txt"),
+
+            LessonItem(24, 1,
+                    "Comidas - segunda parte",
+                    "food_2_introduction.txt",
+                    "food_2_vocabulary.txt",
+                    "food_2_sentences.txt",
+                    R.drawable.icon_food_2,
+                    "food_2_introduction_german.txt"),
+
+            LessonItem(25, 1,
+                    "Países - primera parte",
+                    "countries_1_introduction.txt",
+                    "countries_1_vocabulary.txt",
+                    "countries_1_sentences.txt",
+                    R.drawable.icon_countries,
+                    "countries_1_introduction_german.txt"),
     )
 }

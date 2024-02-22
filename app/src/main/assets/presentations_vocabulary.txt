@@ -2,7 +2,7 @@ hallo - hola - hi - hello - Grüß Gott
 der Name - el nombre
 wo - dónde - wo ist das
 wie - cómo
-auf Wiedersehen - adiós - Tschüss - Auf Wiederhören - Bis bald
+auf Wiedersehen - adiós - Tschüss - Auf Wiederhören - Bis bald - Tschau - Bis später - Auf Wiederhören - Mach's gut
 bis später - nos vemos - Bis bald
 später - después - danach - nachher - nach
 der Morgen - la mañana
@@ -12,4 +12,5 @@ der Tag - el día - der Tagesablauf - der Werktag
 kennen - conocer
 guten Morgen - buenos días - guten Tag - Moin - Morgen
 gute Nacht - buenas noches - Nacht
+Entschuldigung - Disculpa (perdón) - Es tut mir leid
 wie geht es dir - ¿Cómo estás? - wie geht's - Wie geht es Ihnen - wie geht es dir? - wie geht's? - Wie geht es Ihnen?

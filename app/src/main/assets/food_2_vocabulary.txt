@@ -1,0 +1,18 @@
+der Tomate - el tomate
+die Zwiebel - la cebolla
+der Chili - el chile
+das Gemüse - la verdura
+das Obst - la fruta
+das Erfrischungsgetränk - el refresco
+der Saft - el jugo
+der Orangensaft - el jugo de naranja
+der Apfelsaft - el jugo de manzana
+das Frühstück - el desayuno
+das Mittagessen - la comida
+das Abendessen - la cena
+das Fasten - el ayuno
+der Hunger - el hambre
+der Durst - la sed
+das Getränk - la bebida
+die Nahrung - el alimento
+das ei - el huevo
