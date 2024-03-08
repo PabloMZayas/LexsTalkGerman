@@ -27,7 +27,8 @@ import com.projects.lexstalkpt.presentation.selections.SelectionsViewModel
 
 @Composable
 fun PlayingListenWordsScreen(selectionsViewModel: SelectionsViewModel,
-                             navController: NavHostController, readTextOutLoud: (String) -> Unit) {
+                             navController: NavHostController,
+                             readTextOutLoud: (String) -> Unit) {
     Column(Modifier
             .fillMaxSize()
             .padding(25.dp),
@@ -36,7 +37,10 @@ fun PlayingListenWordsScreen(selectionsViewModel: SelectionsViewModel,
         ShowLives(selectionsViewModel)
         ShowTimeAndMoney()
         MySpacer(15)
-        TextInstructions(Modifier.align(Alignment.CenterHorizontally), "Une las palabras correspondientes")
+        TextInstructions(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                instruction = "Une las palabras correspondientes"
+        )
         MySpacer(15)
         ShowWords(selectionsViewModel, Modifier, readTextOutLoud)
     }
@@ -98,7 +102,7 @@ fun getGermanCardsForGame(vocabularyList: List<List<String>>): List<CardItem> {
         var isSelected by rememberSaveable { mutableStateOf(false) }
         var isFound by rememberSaveable { mutableStateOf(false) }
         CardItem(
-                listString[0],
+                word = listString[0],
                 isSelected = isSelected,
                 isFound = isFound,
                 onSelectedChange = { isSelected = it },

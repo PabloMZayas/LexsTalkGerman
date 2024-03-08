@@ -65,8 +65,8 @@ fun SelectSectionScreen(navController: NavHostController, selectionsViewModel: S
                 .weight(1f),
                 navController,
                 selectionsViewModel)
-        //Spacer(modifier = Modifier.size(10.dp))
-        //BottomBar()
+        Spacer(modifier = Modifier.size(10.dp))
+        BottomBar()
     }
 }
 
@@ -151,7 +151,7 @@ fun MyHeader() {
                         .size(40.dp)
                         .padding(5.dp),
                 contentDescription = "flag_german")
-        //MySpinnerSelectLevel(Modifier.weight(1f))
+        MySpinnerSelectLevel(Modifier.weight(1f))
         IconButton(onClick = { /*TODO*/ }) {
             Icon(painterResource(id = R.drawable.manage_account),
                     modifier = Modifier
